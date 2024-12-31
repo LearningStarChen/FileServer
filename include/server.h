@@ -32,9 +32,9 @@ private:
     void parsing_Client_Requests(int clientfd);
 private:
     //服务器的功能设计
-    static void downloadfile(std::string mess);
-    // void sendmessage();
-    // void lookallfile();
+    static void downloadfile(std::string mess, int clientfd);
+    static void sendmessage(std::string mess, int clientfd);
+    static void lookallfile(std::string mess, int clientfd);
 };
 
 

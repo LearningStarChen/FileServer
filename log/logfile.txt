@@ -995,3 +995,327 @@ already connect server
 2024-12-31 02:24:48 - WARNING - client fd 
 6
  connection closed by peer
+2024-12-31 10:08:38 - TRACK - exe at main start
+2024-12-31 10:08:38 - TRACK - thread start, Tid :139682311706368
+2024-12-31 10:08:38 - TRACK - threadpool at constructor function create thread successful, waiting for task
+2024-12-31 10:08:38 - TRACK - server at constructor function start
+2024-12-31 10:08:38 - TRACK - thread start, Tid :139682303313664
+2024-12-31 10:08:38 - TRACK - thread start, Tid :139682294920960
+2024-12-31 10:08:38 - TRACK - server start successful
+2024-12-31 10:08:38 - TRACK - thread start, Tid :139682286528256
+2024-12-31 10:08:38 - TRACK - thread start, Tid :139682320099072
+2024-12-31 10:08:38 - TRACK - thread start, Tid :139682184681216
+2024-12-31 10:08:38 - TRACK - thread start, Tid :139682328491776
+2024-12-31 10:08:38 - TRACK - thread start, Tid :139682193073920
+2024-12-31 10:08:38 - TRACK - thread start, Tid :139682278135552
+2024-12-31 10:08:38 - TRACK - thread start, Tid :139682201466624
+2024-12-31 10:09:26 - TRACK - new client fd
+6
+already connect server
+2024-12-31 10:09:26 - TRACK - already recv from client
+2024-12-31 10:09:26 - TRACK - parsing client requests
+2024-12-31 10:09:26 - TRACK - message formats is downloadfile
+2024-12-31 10:09:26 - TRACK - read client info finished
+2024-12-31 10:09:47 - WARNING - client fd 
+6
+ connection closed by peer
+2024-12-31 10:09:59 - TRACK - new client fd
+6
+already connect server
+2024-12-31 10:09:59 - TRACK - already recv from client
+2024-12-31 10:09:59 - TRACK - parsing client requests
+2024-12-31 10:09:59 - TRACK - message formats is sendmessage
+2024-12-31 10:09:59 - TRACK - read client info finished
+2024-12-31 10:10:07 - WARNING - client fd 
+6
+ connection closed by peer
+2024-12-31 10:10:08 - TRACK - new client fd
+6
+already connect server
+2024-12-31 10:10:08 - TRACK - already recv from client
+2024-12-31 10:10:08 - TRACK - parsing client requests
+2024-12-31 10:10:08 - TRACK - message formats is sendmessage
+2024-12-31 10:10:08 - TRACK - read client info finished
+2024-12-31 10:11:19 - WARNING - client fd 
+6
+ connection closed by peer
+2024-12-31 10:11:21 - TRACK - new client fd
+6
+already connect server
+2024-12-31 10:11:21 - TRACK - already recv from client
+2024-12-31 10:11:21 - TRACK - parsing client requests
+2024-12-31 10:11:21 - TRACK - message formats is sendmessage
+2024-12-31 10:11:21 - TRACK - read client info finished
+2024-12-31 10:11:26 - WARNING - client fd 
+6
+ connection closed by peer
+2024-12-31 10:11:30 - TRACK - new client fd
+6
+already connect server
+2024-12-31 10:11:30 - TRACK - already recv from client
+2024-12-31 10:11:30 - TRACK - parsing client requests
+2024-12-31 10:11:30 - TRACK - message formats is sendmessage
+2024-12-31 10:11:30 - TRACK - read client info finished
+2024-12-31 10:11:38 - WARNING - client fd 
+6
+ connection closed by peer
+2024-12-31 10:11:51 - TRACK - new client fd
+6
+already connect server
+2024-12-31 10:11:51 - TRACK - already recv from client
+2024-12-31 10:11:51 - TRACK - parsing client requests
+2024-12-31 10:11:51 - TRACK - message formats is downloadfile
+2024-12-31 10:11:51 - TRACK - read client info finished
+2024-12-31 10:11:55 - WARNING - client fd 
+6
+ connection closed by peer
+2024-12-31 10:11:59 - TRACK - new client fd
+6
+already connect server
+2024-12-31 10:11:59 - TRACK - already recv from client
+2024-12-31 10:11:59 - TRACK - parsing client requests
+2024-12-31 10:11:59 - TRACK - message formats is downloadfile
+2024-12-31 10:11:59 - TRACK - read client info finished
+2024-12-31 10:12:05 - WARNING - client fd 
+6
+ connection closed by peer
+2024-12-31 10:12:06 - TRACK - new client fd
+6
+already connect server
+2024-12-31 10:12:06 - TRACK - already recv from client
+2024-12-31 10:12:06 - TRACK - parsing client requests
+2024-12-31 10:12:06 - TRACK - message formats is downloadfile
+2024-12-31 10:12:06 - TRACK - read client info finished
+2024-12-31 10:12:54 - TRACK - exe at main start
+2024-12-31 10:12:54 - TRACK - thread start, Tid :139854382319360
+2024-12-31 10:12:54 - TRACK - thread start, Tid :139854357141248
+2024-12-31 10:12:54 - TRACK - thread start, Tid :139854268593920
+2024-12-31 10:12:54 - TRACK - thread start, Tid :139854348748544
+2024-12-31 10:12:54 - TRACK - thread start, Tid :139854243415808
+2024-12-31 10:12:54 - TRACK - threadpool at constructor function create thread successful, waiting for task
+2024-12-31 10:12:54 - TRACK - server at constructor function start
+2024-12-31 10:12:54 - TRACK - server start successful
+2024-12-31 10:12:54 - TRACK - thread start, Tid :139854365533952
+2024-12-31 10:12:54 - TRACK - thread start, Tid :139854373926656
+2024-12-31 10:12:54 - TRACK - thread start, Tid :139854235023104
+2024-12-31 10:12:54 - TRACK - thread start, Tid :139854251808512
+2024-12-31 10:12:54 - TRACK - thread start, Tid :139854260201216
+2024-12-31 10:12:58 - TRACK - new client fd
+6
+already connect server
+2024-12-31 10:12:58 - TRACK - already recv from client
+2024-12-31 10:12:58 - TRACK - parsing client requests
+2024-12-31 10:12:58 - TRACK - message formats is downloadfile
+2024-12-31 10:12:58 - TRACK - read client info finished
+2024-12-31 10:14:26 - TRACK - exe at main start
+2024-12-31 10:14:26 - TRACK - thread start, Tid :140164451276544
+2024-12-31 10:14:26 - TRACK - thread start, Tid :140164426098432
+2024-12-31 10:14:26 - TRACK - thread start, Tid :140164409313024
+2024-12-31 10:14:26 - TRACK - thread start, Tid :140164442883840
+2024-12-31 10:14:26 - TRACK - thread start, Tid :140164311545600
+2024-12-31 10:14:26 - TRACK - thread start, Tid :140164400920320
+2024-12-31 10:14:26 - TRACK - thread start, Tid :140164417705728
+2024-12-31 10:14:26 - TRACK - threadpool at constructor function create thread successful, waiting for task
+2024-12-31 10:14:26 - TRACK - server at constructor function start
+2024-12-31 10:14:26 - TRACK - thread start, Tid :140164303152896
+2024-12-31 10:14:26 - TRACK - server start successful
+2024-12-31 10:14:26 - TRACK - thread start, Tid :140164434491136
+2024-12-31 10:14:26 - TRACK - thread start, Tid :140164392527616
+2024-12-31 10:14:38 - TRACK - new client fd
+6
+already connect server
+2024-12-31 10:14:38 - TRACK - already recv from client
+2024-12-31 10:14:38 - TRACK - parsing client requests
+2024-12-31 10:14:38 - TRACK - message formats is downloadfile
+2024-12-31 10:14:38 - TRACK - read client info finished
+2024-12-31 10:14:46 - WARNING - client fd 
+6
+ connection closed by peer
+2024-12-31 10:15:42 - TRACK - new client fd
+6
+already connect server
+2024-12-31 10:15:42 - TRACK - already recv from client
+2024-12-31 10:15:42 - TRACK - parsing client requests
+2024-12-31 10:15:42 - TRACK - message formats is sendmessage
+2024-12-31 10:15:42 - TRACK - read client info finished
+2024-12-31 10:16:44 - WARNING - client fd 
+6
+ connection closed by peer
+2024-12-31 10:16:48 - TRACK - new client fd
+6
+already connect server
+2024-12-31 10:16:48 - TRACK - already recv from client
+2024-12-31 10:16:48 - TRACK - parsing client requests
+2024-12-31 10:16:48 - TRACK - message formats is sendmessage
+2024-12-31 10:16:48 - TRACK - read client info finished
+
+
+2024-12-31 10:17:40 - WARNING - client fd 
+6
+ connection closed by peer
+2024-12-31 10:17:42 - TRACK - new client fd
+6
+already connect server
+2024-12-31 10:17:42 - TRACK - already recv from client
+2024-12-31 10:17:42 - TRACK - parsing client requests
+2024-12-31 10:17:42 - TRACK - message formats is sendmessage
+2024-12-31 10:17:42 - TRACK - read client info finished
+2024-12-31 10:17:55 - TRACK - exe at main start
+2024-12-31 10:17:55 - TRACK - thread start, Tid :140585426892544
+2024-12-31 10:17:55 - TRACK - thread start, Tid :140585410107136
+2024-12-31 10:17:55 - TRACK - thread start, Tid :140585401714432
+2024-12-31 10:17:55 - TRACK - thread start, Tid :140585418499840
+2024-12-31 10:17:55 - TRACK - thread start, Tid :140585393321728
+2024-12-31 10:17:55 - TRACK - thread start, Tid :140585384929024
+2024-12-31 10:17:55 - TRACK - thread start, Tid :140585368143616
+2024-12-31 10:17:55 - TRACK - threadpool at constructor function create thread successful, waiting for task
+2024-12-31 10:17:55 - TRACK - server at constructor function start
+2024-12-31 10:17:55 - TRACK - server start successful
+2024-12-31 10:17:55 - TRACK - thread start, Tid :140585376536320
+2024-12-31 10:17:55 - TRACK - thread start, Tid :140585142839040
+2024-12-31 10:17:55 - TRACK - thread start, Tid :140585151231744
+2024-12-31 10:17:59 - TRACK - new client fd
+4
+already connect server
+2024-12-31 10:17:59 - TRACK - already recv from client
+2024-12-31 10:17:59 - TRACK - parsing client requests
+2024-12-31 10:17:59 - TRACK - message formats is sendmessage
+2024-12-31 10:17:59 - TRACK - read client info finished
+
+
+2024-12-31 10:18:11 - WARNING - client fd 
+4
+ connection closed by peer
+
+
+2024-12-31 10:18:17 - TRACK - new client fd
+4
+already connect server
+2024-12-31 10:18:17 - TRACK - already recv from client
+2024-12-31 10:18:17 - TRACK - parsing client requests
+2024-12-31 10:18:17 - TRACK - message formats is sendmessage
+2024-12-31 10:18:17 - TRACK - read client info finished
+2024-12-31 10:18:26 - TRACK - exe at main start
+2024-12-31 10:18:26 - TRACK - thread start, Tid :140312760297216
+2024-12-31 10:18:26 - TRACK - thread start, Tid :140312735119104
+2024-12-31 10:18:26 - TRACK - thread start, Tid :140312751904512
+2024-12-31 10:18:26 - TRACK - thread start, Tid :140312718333696
+2024-12-31 10:18:26 - TRACK - thread start, Tid :140312622135040
+2024-12-31 10:18:26 - TRACK - thread start, Tid :140312709940992
+2024-12-31 10:18:26 - TRACK - threadpool at constructor function create thread successful, waiting for task
+2024-12-31 10:18:26 - TRACK - thread start, Tid :140312613742336
+2024-12-31 10:18:26 - TRACK - server at constructor function start
+2024-12-31 10:18:26 - TRACK - thread start, Tid :140312726726400
+2024-12-31 10:18:26 - TRACK - thread start, Tid :140312743511808
+2024-12-31 10:18:26 - TRACK - server start successful
+2024-12-31 10:18:26 - TRACK - thread start, Tid :140312701548288
+
+
+2024-12-31 10:18:34 - TRACK - new client fd
+6
+already connect server
+2024-12-31 10:18:34 - TRACK - already recv from client
+2024-12-31 10:18:34 - TRACK - parsing client requests
+2024-12-31 10:18:34 - TRACK - message formats is sendmessage
+2024-12-31 10:18:34 - TRACK - read client info finished
+2024-12-31 10:26:27 - TRACK - exe at main start
+2024-12-31 10:26:27 - TRACK - thread start, Tid :140225040013056
+2024-12-31 10:26:27 - TRACK - thread start, Tid :140225023227648
+2024-12-31 10:26:27 - TRACK - thread start, Tid :140225056798464
+2024-12-31 10:26:27 - TRACK - thread start, Tid :140225048405760
+2024-12-31 10:26:27 - TRACK - thread start, Tid :140225065191168
+2024-12-31 10:26:27 - TRACK - thread start, Tid :140224897402624
+2024-12-31 10:26:27 - TRACK - thread start, Tid :140225006442240
+2024-12-31 10:26:27 - TRACK - threadpool at constructor function create thread successful, waiting for task
+2024-12-31 10:26:27 - TRACK - server at constructor function start
+2024-12-31 10:26:27 - TRACK - server start successful
+2024-12-31 10:26:27 - TRACK - thread start, Tid :140225031620352
+2024-12-31 10:26:27 - TRACK - thread start, Tid :140224998049536
+2024-12-31 10:26:27 - TRACK - thread start, Tid :140225014834944
+2024-12-31 10:26:31 - TRACK - new client fd
+6
+already connect server
+2024-12-31 10:26:31 - TRACK - already recv from client
+2024-12-31 10:26:31 - TRACK - parsing client requests
+2024-12-31 10:26:31 - TRACK - message formats is sendmessage
+2024-12-31 10:26:31 - TRACK - read client info finished
+2024-12-31 10:29:25 - TRACK - exe at main start
+2024-12-31 10:29:25 - TRACK - thread start, Tid :140442085467904
+2024-12-31 10:29:25 - TRACK - thread start, Tid :140442060289792
+2024-12-31 10:29:25 - TRACK - thread start, Tid :140442051897088
+2024-12-31 10:29:25 - TRACK - thread start, Tid :140442043504384
+2024-12-31 10:29:25 - TRACK - thread start, Tid :140442035111680
+2024-12-31 10:29:25 - TRACK - thread start, Tid :140442026718976
+2024-12-31 10:29:25 - TRACK - threadpool at constructor function create thread successful, waiting for task
+2024-12-31 10:29:25 - TRACK - server at constructor function start
+2024-12-31 10:29:25 - TRACK - thread start, Tid :140442018326272
+2024-12-31 10:29:25 - TRACK - server start successful
+2024-12-31 10:29:25 - TRACK - thread start, Tid :140441404045056
+2024-12-31 10:29:25 - TRACK - thread start, Tid :140442068682496
+2024-12-31 10:29:25 - TRACK - thread start, Tid :140442077075200
+2024-12-31 10:29:28 - TRACK - new client fd
+6
+already connect server
+2024-12-31 10:29:28 - TRACK - read client info finished
+2024-12-31 10:29:28 - TRACK - parsing client requests
+2024-12-31 10:29:28 - TRACK - message formats is sendmessage
+2024-12-31 10:33:22 - TRACK - exe at main start
+2024-12-31 10:33:22 - TRACK - thread start, Tid :140679427970816
+2024-12-31 10:33:22 - TRACK - threadpool at constructor function create thread successful, waiting for task
+2024-12-31 10:33:22 - TRACK - thread start, Tid :140679436363520
+2024-12-31 10:33:22 - TRACK - server at constructor function start
+2024-12-31 10:33:22 - TRACK - thread start, Tid :140679419578112
+2024-12-31 10:33:22 - TRACK - thread start, Tid :140679444756224
+2024-12-31 10:33:22 - TRACK - thread start, Tid :140679304967936
+2024-12-31 10:33:22 - TRACK - thread start, Tid :140679386007296
+2024-12-31 10:33:22 - TRACK - thread start, Tid :140679402792704
+2024-12-31 10:33:22 - TRACK - server start successful
+2024-12-31 10:33:22 - TRACK - thread start, Tid :140679453148928
+2024-12-31 10:33:22 - TRACK - thread start, Tid :140679394400000
+2024-12-31 10:33:22 - TRACK - thread start, Tid :140679411185408
+2024-12-31 10:33:27 - TRACK - new client fd
+6
+already connect server
+2024-12-31 10:33:27 - TRACK - read client info finished
+2024-12-31 10:33:27 - TRACK - parsing client requests
+2024-12-31 10:33:27 - TRACK - message formats is sendmessage
+2024-12-31 10:34:20 - TRACK - exe at main start
+2024-12-31 10:34:20 - TRACK - thread start, Tid :139801779447552
+2024-12-31 10:34:20 - TRACK - thread start, Tid :139801787840256
+2024-12-31 10:34:20 - TRACK - thread start, Tid :139801636837120
+2024-12-31 10:34:20 - TRACK - thread start, Tid :139801745876736
+2024-12-31 10:34:20 - TRACK - threadpool at constructor function create thread successful, waiting for task
+2024-12-31 10:34:20 - TRACK - server at constructor function start
+2024-12-31 10:34:20 - TRACK - server start successful
+2024-12-31 10:34:20 - TRACK - thread start, Tid :139801796232960
+2024-12-31 10:34:20 - TRACK - thread start, Tid :139801804625664
+2024-12-31 10:34:20 - TRACK - thread start, Tid :139801737484032
+2024-12-31 10:34:20 - TRACK - thread start, Tid :139801754269440
+2024-12-31 10:34:20 - TRACK - thread start, Tid :139801762662144
+2024-12-31 10:34:20 - TRACK - thread start, Tid :139801771054848
+2024-12-31 10:34:23 - TRACK - new client fd
+6
+already connect server
+2024-12-31 10:34:23 - TRACK - read client info finished
+2024-12-31 10:34:23 - TRACK - parsing client requests
+2024-12-31 10:34:23 - TRACK - message formats is sendmessage
+2024-12-31 10:36:46 - TRACK - exe at main start
+2024-12-31 10:36:46 - TRACK - thread start, Tid :140555372095232
+2024-12-31 10:36:46 - TRACK - thread start, Tid :140555363702528
+2024-12-31 10:36:46 - TRACK - thread start, Tid :140555220678400
+2024-12-31 10:36:46 - TRACK - threadpool at constructor function create thread successful, waiting for task
+2024-12-31 10:36:46 - TRACK - server at constructor function start
+2024-12-31 10:36:46 - TRACK - thread start, Tid :140555330131712
+2024-12-31 10:36:46 - TRACK - thread start, Tid :140555355309824
+2024-12-31 10:36:46 - TRACK - server start successful
+2024-12-31 10:36:46 - TRACK - thread start, Tid :140555346917120
+2024-12-31 10:36:46 - TRACK - thread start, Tid :140555304953600
+2024-12-31 10:36:46 - TRACK - thread start, Tid :140555321739008
+2024-12-31 10:36:46 - TRACK - thread start, Tid :140555313346304
+2024-12-31 10:36:46 - TRACK - thread start, Tid :140555338524416
+2024-12-31 10:36:47 - TRACK - new client fd
+6
+already connect server
+2024-12-31 10:36:47 - TRACK - read client info finished
+2024-12-31 10:36:47 - TRACK - parsing client requests
+2024-12-31 10:36:47 - TRACK - message formats is sendmessage

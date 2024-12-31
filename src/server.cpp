@@ -133,40 +133,32 @@ void Server::start() {
 // }
 
 void Server::read_Client_Message(int clientfd) {
-    //char buffer[1024];
-
+    bufferlen = 0;
     while (true) {
-        ssize_t n = read(clientfd, buffer, sizeof(buffer));
-
-        if (n > 0) {// 正常接收数据，将其转换为字符串输出
-            //数据量比较小，所以一次读完了,读取到buffer内部，然后调用parsing_Client_Requests解析
-            LOG_TRACK << "already recv from client";
-            bufferlen = n;
-            parsing_Client_Requests(clientfd);
-        } else if (n == 0) { // 客户端关闭连接
+        ssize_t n = read(clientfd, buffer + bufferlen, sizeof(buffer) - bufferlen);
+        if (n > 0) {
+            bufferlen += n;
+            continue; // 继续读取剩余数据
+        } else if (n == 0) {
             LOG_WARNING << "client fd " << clientfd << " connection closed by peer";
-            //std::cout << "关闭连接" << std::endl;
-            // 从 epoll 中移除并关闭文件描述符
             epoll_ctl(serverFd, EPOLL_CTL_DEL, clientfd, nullptr);
             close(clientfd);
             break;
-        } else if (n == -1){ // n == -1
+        } else if (n == -1) {
             if (errno == EAGAIN || errno == EWOULDBLOCK) {
-                // 数据已读取完毕，退出循环
-                //std::cout << "读取完毕" << std::endl;
                 LOG_TRACK << "read client info finished";
-                break;
+                break; // 数据读取完毕，退出循环
             } else {
-                // 读取错误
                 LOG_ERROR << "read from client fd: " << clientfd << " error: " << strerror(errno);
-                // 从 epoll 中移除并关闭文件描述符
                 epoll_ctl(serverFd, EPOLL_CTL_DEL, clientfd, nullptr);
                 close(clientfd);
                 break;
             }
         }
     }
+    parsing_Client_Requests(clientfd); // 在循环外统一处理解析
 }
+
 
 
 void Server::parsing_Client_Requests(int clientfd) {
@@ -185,18 +177,18 @@ void Server::parsing_Client_Requests(int clientfd) {
         LOG_TRACK << "message formats is downloadfile";
         //std::cout << message_from_client << std::endl;
         
-        tp->push(downloadfile, message_from_client);
+        tp->push(downloadfile, message_from_client, clientfd);
 
 
     } else if (message_from_client.find("sendmessage") != std::string::npos) {
         LOG_TRACK << "message formats is sendmessage";
-        std::cout << message_from_client << std::endl;
-
+        //std::cout << message_from_client << std::endl;
+        tp->push(sendmessage, message_from_client, clientfd);
 
     } else if (message_from_client.find("lookallfile") != std::string::npos) {
         LOG_TRACK << "message formats is lookallfile";
-        std::cout << message_from_client << std::endl;
-
+        //std::cout << message_from_client << std::endl;
+        tp->push(lookallfile, message_from_client, clientfd);
 
     }
     // std::regex pattern(R"(([^,]+),(.+))"); // 匹配逗号分隔的两个部分
@@ -219,8 +211,14 @@ void Server::parsing_Client_Requests(int clientfd) {
 }
 
 
-void Server::downloadfile(std::string mess) {
+void Server::downloadfile(std::string mess, int client) {
     std::cout << "到了down函数内部"  << mess << std::endl;
 }
-// void sendmessage();
-// void lookallfile();
+
+void Server::sendmessage(std::string mess, int client) {
+    std::cout << "到了sendmessage函数内部"  << mess << std::endl;
+}
+
+void Server::lookallfile(std::string mess, int client) {
+    std::cout << "到了lookallfile函数内部"  << mess << std::endl;
+}
