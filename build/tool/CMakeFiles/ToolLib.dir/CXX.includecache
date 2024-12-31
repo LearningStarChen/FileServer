@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/chn/FileServer/FileServer/tool/tool.cpp
+tool.h
+/home/chn/FileServer/FileServer/tool/tool.h
+
+/home/chn/FileServer/FileServer/tool/tool.h
+string
+-
+iostream
+-
+fstream
+-
+mutex
+-
+sys/types.h
+-
+sys/socket.h
+-
+unistd.h
+-
+cstring
+-
+arpa/inet.h
+-
+sys/epoll.h
+-
+fcntl.h
+-
+netinet/in.h
+-
+

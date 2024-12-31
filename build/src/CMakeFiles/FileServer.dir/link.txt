@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/FileServer.dir/main.cpp.o CMakeFiles/FileServer.dir/server.cpp.o CMakeFiles/FileServer.dir/threadpool.cpp.o  -o ../bin/FileServer  ../tool/libToolLib.a ../tool/libToolLib.a -lpthread 

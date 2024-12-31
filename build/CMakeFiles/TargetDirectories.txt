@@ -1,0 +1,8 @@
+/home/chn/FileServer/FileServer/build/CMakeFiles/rebuild_cache.dir
+/home/chn/FileServer/FileServer/build/CMakeFiles/edit_cache.dir
+/home/chn/FileServer/FileServer/build/tool/CMakeFiles/rebuild_cache.dir
+/home/chn/FileServer/FileServer/build/tool/CMakeFiles/edit_cache.dir
+/home/chn/FileServer/FileServer/build/tool/CMakeFiles/ToolLib.dir
+/home/chn/FileServer/FileServer/build/src/CMakeFiles/rebuild_cache.dir
+/home/chn/FileServer/FileServer/build/src/CMakeFiles/edit_cache.dir
+/home/chn/FileServer/FileServer/build/src/CMakeFiles/FileServer.dir
