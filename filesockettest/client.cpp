@@ -28,9 +28,9 @@
 
 //     outFile.close();
 // }
-
+//######采用二进制的方式读取文件，防止文件被\r\n等所破坏，特别是传输非文本文件，例如图片，视频等#######
 void requestFile(int socket, const std::string& filename) {
-    // 发送请求文件名给服务端
+    // 发送请求文件名给服务端，改成文件的协议的组织
     write(socket, filename.c_str(), filename.size()); // 使用 write
 
     // 接收文件内容并保存

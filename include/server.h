@@ -31,6 +31,7 @@ private:
     void read_Client_Message(int fd);
     void parsing_Client_Requests(int clientfd);
 private:
+    
     //服务器的功能设计
     static void downloadfile(std::string mess, int clientfd);
     static void sendmessage(std::string mess, int clientfd);

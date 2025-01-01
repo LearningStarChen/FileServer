@@ -44,7 +44,7 @@
 void handleClient(int clientSocket) {
     char buffer[BUFFER_SIZE] = {0};
 
-    // 读取客户端请求
+    // 读取客户端请求，可以改成读取的文件先行的协议信息
     int bytesRead = read(clientSocket, buffer, BUFFER_SIZE); // 使用 read
     if (bytesRead <= 0) {
         std::cerr << "Failed to read request from client." << std::endl;
