@@ -29,9 +29,14 @@
 //     outFile.close();
 // }
 //######采用二进制的方式读取文件，防止文件被\r\n等所破坏，特别是传输非文本文件，例如图片，视频等#######
-void requestFile(int socket, const std::string& filename) {
+void requestFile(int socket, const std::string& request) {
     // 发送请求文件名给服务端，改成文件的协议的组织
-    write(socket, filename.c_str(), filename.size()); // 使用 write
+    write(socket, request.c_str(), request.size()); // 使用 write
+    int kf = request.find(",");
+    int ks = request.find(",", kf + 1);
+    //cout << kf << " " << ks << endl;
+    std::string filename = request.substr(kf + 1, ks - kf - 1);
+    int size = atoi(request.substr(ks + 1).c_str());
 
     // 接收文件内容并保存
     char buffer[BUFFER_SIZE] = {0};
@@ -67,7 +72,7 @@ int main() {
     // 连接到服务器
     serverAddr.sin_family = AF_INET;
     serverAddr.sin_port = htons(PORT);
-    serverAddr.sin_addr.s_addr = inet_addr("192.168.43.135");
+    serverAddr.sin_addr.s_addr = inet_addr("192.168.120.128");
     if (connect(clientSocket, (struct sockaddr*)&serverAddr, sizeof(serverAddr)) == -1) {
         perror("Connect failed");
         return -1;
@@ -76,10 +81,10 @@ int main() {
     std::cout << "Connected to server." << std::endl;
 
     // 请求文件
-    std::string filename;
+    std::string request;
     std::cout << "Enter the filename to request: ";
-    std::cin >> filename;
-    requestFile(clientSocket, filename);
+    std::cin >> request;
+    requestFile(clientSocket, request);
 
     close(clientSocket);
     return 0;

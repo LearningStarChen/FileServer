@@ -33,7 +33,7 @@ private:
 private:
     
     //服务器的功能设计
-    static void downloadfile(std::string mess, int clientfd);
+    static void downloadfile(std::string filename, uint64_t size, int clientfd);
     static void sendmessage(std::string mess, int clientfd);
     static void lookallfile(std::string mess, int clientfd);
 };

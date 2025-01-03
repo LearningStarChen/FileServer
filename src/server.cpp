@@ -163,21 +163,22 @@ void Server::read_Client_Message(int clientfd) {
 
 void Server::parsing_Client_Requests(int clientfd) {
     LOG_TRACK << "parsing client requests";
-    //std::cout << std::string(buffer, bufferlen) << std::endl;
     std::string message_from_client = std::string(buffer, bufferlen);
-    std::cout << message_from_client << std::endl;
-
+    
     // 1. 下载文件：
-    // downloadfile,filename.txt(pdf,other formats)
+    // downloadfile,filename.txt(pdf,other formats),size(文件大小)
     // 2. 发送消息给另一用户：
     // sendmessage,message(string formats),otherclientfd
     // 3. 查看所有文件（暂时先不考虑用户隔离）
     // lookallfile
     if (message_from_client.find("downloadfile") != std::string::npos) {
         LOG_TRACK << "message formats is downloadfile";
-        //std::cout << message_from_client << std::endl;
-        
-        tp->push(downloadfile, message_from_client, clientfd);
+        int kf = message_from_client.find(",");
+        int ks = message_from_client.find(",", kf + 1);
+        std::string filename = message_from_client.substr(kf + 1, ks - kf - 1);
+        uint64_t size = atoi(message_from_client.substr(ks + 1).c_str());
+        //cout << filename  <<  " "  << size << endl;
+        tp->push(downloadfile, filename, size, clientfd);
 
 
     } else if (message_from_client.find("sendmessage") != std::string::npos) {
@@ -211,8 +212,31 @@ void Server::parsing_Client_Requests(int clientfd) {
 }
 
 
-void Server::downloadfile(std::string mess, int client) {
-    std::cout << "到了down函数内部"  << mess << std::endl;
+void Server::downloadfile(std::string requestedFile, uint64_t size, int clientfd) {
+   
+    // 打开文件
+    std::string path = "/home/chn/FileServer/filestorge/" + requestedFile;
+    std::cout << "filename" << path << std::endl;
+    std::ifstream inFile;
+    inFile.open(path, std::ios::binary);
+    //inFile.open(,);
+    if (!inFile.is_open()) {
+        std::cerr << "File not found: " << path << std::endl;
+        //close(clientSocket);
+        return;
+    }
+    char buffer[1024] = {0};
+    //阻塞的读写方式，可以读到结束标识，但是非阻塞的是需要看实际读取的值
+    // // 发送文件内容
+    // while (!inFile.eof()) {
+    //     std::cout << "发送文件" << std::endl;
+    //     inFile.read(buffer, 1024);  // 读取文件内容到缓冲区
+    //     write(clientfd, buffer, inFile.gcount());  // 使用 write
+    // }
+
+    // std::cout << "File sent successfully." << std::endl;
+
+    // inFile.close();
 }
 
 void Server::sendmessage(std::string mess, int client) {
