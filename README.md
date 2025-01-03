@@ -1,4 +1,4 @@
-一、生成运行
+# 生成运行
 1. 创建 build/ 文件夹: 在项目根目录下执行：
 mkdir build
 cd build
@@ -10,7 +10,7 @@ cmake --build .
 ./bin/FileServer
 
 
-二、需要考虑配置的量
+# 需要考虑配置的量
 1. 服务器绑定的端口
 2. 日志的文件路径（如果没有添加默认的路径./log/logfile.txt）
 3. MAX_EVENT， epoll每次最多可以处理的最大事件数量
@@ -18,10 +18,14 @@ cmake --build .
 5. 服务端接受客户端的消息的最大长度MAXMESS
 
 
-三、客户端与服务端的交互格式：
+# 客户端与服务端的交互格式：
 1. 下载文件：
    downloadfile,filename.txt(pdf, other formats)
 2. 发送消息给另一用户：
    sendmessage,message(string formats),otherclientfd
 3. 查看所有文件（暂时先不考虑用户隔离）
    lookallfile,
+# 还未干的事情
+1. 增加shell一步构建执行
+2. 增加config类读取配置文件，（由于本项目不借助任何第三方工具，故用txt配置项目）
+3. 将文件的读写和消息的发送逻辑合并进server.h中
