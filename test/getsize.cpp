@@ -12,7 +12,7 @@ size_t getFileSize(const std::string& filePath) {
 }
 
 int main() {
-    std::string filePath = "git.pdf"; // 文件路径
+    std::string filePath = "123456.txt"; // 文件路径
     size_t fileSize = getFileSize(filePath);
 
     if (fileSize > 0) {

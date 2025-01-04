@@ -32,10 +32,10 @@ void recvfile() {
 
     write(clientfd, request.c_str(), request.size());
 
-    // char buffer[1024];
-    // int recvsize = read(clientfd, buffer, sizeof(buffer));
+    char buffer[1024];
+    int recvsize = read(clientfd, buffer, sizeof(buffer));
     
-    // std::cout << "文件的大小是：" << recvsize << std::endl;
+    std::cout << "文件的大小是：" << std::string(buffer, recvsize) << std::endl;
 
 }
 

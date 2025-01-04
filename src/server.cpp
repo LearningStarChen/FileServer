@@ -212,12 +212,12 @@ void Server::parsing_Client_Requests(int clientfd) {
 
 void Server::downloadfile(std::string requestedFile, int clientfd) {
     std::cout << requestedFile << std::endl;
-    std::string filepath = "../filesockettest/" + requestedFile;
+    std::string filepath = "../test/" + requestedFile;
     size_t filesize = 0;
     filesize = Tool::getFileSize(filepath);
     std::string filesizestr = std::to_string(filesize);
     std::cout << filesizestr << std::endl; 
-    //write(clientfd, filesizestr.c_str(), filesizestr.size());
+    write(clientfd, filesizestr.c_str(), filesizestr.size());
 }
 
 void Server::sendmessage(std::string mess, int client) {
