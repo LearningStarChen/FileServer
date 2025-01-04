@@ -11,6 +11,7 @@
 #include <fcntl.h>
 #include <netinet/in.h>
 #include <regex>
+
 #include "log.h"
 #include "../tool/tool.h"
 #include "threadpool.h"
@@ -33,7 +34,7 @@ private:
 private:
     
     //服务器的功能设计
-    static void downloadfile(std::string filename, uint64_t size, int clientfd);
+    static void downloadfile(std::string filename, int clientfd);
     static void sendmessage(std::string mess, int clientfd);
     static void lookallfile(std::string mess, int clientfd);
 };

@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/chn/FileServer/FileServer/src/main.cpp" "/home/chn/FileServer/FileServer/build/src/CMakeFiles/FileServer.dir/main.cpp.o"
-  "/home/chn/FileServer/FileServer/src/server.cpp" "/home/chn/FileServer/FileServer/build/src/CMakeFiles/FileServer.dir/server.cpp.o"
-  "/home/chn/FileServer/FileServer/src/threadpool.cpp" "/home/chn/FileServer/FileServer/build/src/CMakeFiles/FileServer.dir/threadpool.cpp.o"
+  "/home/nowcoder/FileServer/FileServer/src/main.cpp" "/home/nowcoder/FileServer/FileServer/build/src/CMakeFiles/FileServer.dir/main.cpp.o"
+  "/home/nowcoder/FileServer/FileServer/src/server.cpp" "/home/nowcoder/FileServer/FileServer/build/src/CMakeFiles/FileServer.dir/server.cpp.o"
+  "/home/nowcoder/FileServer/FileServer/src/threadpool.cpp" "/home/nowcoder/FileServer/FileServer/build/src/CMakeFiles/FileServer.dir/threadpool.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -18,7 +18,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/chn/FileServer/FileServer/build/tool/CMakeFiles/ToolLib.dir/DependInfo.cmake"
+  "/home/nowcoder/FileServer/FileServer/build/tool/CMakeFiles/ToolLib.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

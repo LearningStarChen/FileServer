@@ -13,13 +13,14 @@
 #include <sys/epoll.h>
 #include <fcntl.h>
 #include <netinet/in.h>
+#include <sys/stat.h>
 
 
 class Tool {
 public:
     static std::string getTimestamp();
     static int setNonBlocking(int fd);
-
+    static size_t getFileSize(const std::string& filepath);
 };
 
 #endif

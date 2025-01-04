@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/ToolLib.dir/tool.cpp.o"
-  "libToolLib.a"
   "libToolLib.pdb"
+  "libToolLib.a"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -214,3 +214,267 @@ already connect server
 2025-01-03 06:05:52 - TRACK - read client info finished
 2025-01-03 06:05:52 - TRACK - parsing client requests
 2025-01-03 06:05:52 - TRACK - message formats is downloadfile
+2025-01-04 23:22:47 - TRACK - exe at main start
+2025-01-04 23:22:47 - TRACK - thread start, Tid :140099099432704
+2025-01-04 23:22:47 - TRACK - thread start, Tid :140099116218112
+2025-01-04 23:22:47 - TRACK - thread start, Tid :140098814211840
+2025-01-04 23:22:47 - TRACK - thread start, Tid :140099107825408
+2025-01-04 23:22:47 - TRACK - thread start, Tid :140099014620928
+2025-01-04 23:22:47 - TRACK - thread start, Tid :140099091040000
+2025-01-04 23:22:47 - TRACK - thread start, Tid :140099006228224
+2025-01-04 23:22:47 - TRACK - threadpool at constructor function create thread successful, waiting for task
+2025-01-04 23:22:47 - TRACK - server at constructor function start
+2025-01-04 23:22:47 - TRACK - server start successful
+2025-01-04 23:22:47 - TRACK - thread start, Tid :140098981050112
+2025-01-04 23:22:47 - TRACK - thread start, Tid :140098997835520
+2025-01-04 23:22:47 - TRACK - thread start, Tid :140098989442816
+2025-01-04 23:23:26 - TRACK - new client fd
+6
+already connect server
+2025-01-04 23:23:38 - WARNING - client fd 
+6
+ connection closed by peer
+2025-01-04 23:23:38 - TRACK - parsing client requests
+2025-01-04 23:23:38 - TRACK - message formats is downloadfile
+2025-01-04 23:32:28 - TRACK - exe at main start
+2025-01-04 23:32:28 - TRACK - thread start, Tid :140213630256896
+2025-01-04 23:32:28 - TRACK - thread start, Tid :140213613471488
+2025-01-04 23:32:28 - TRACK - thread start, Tid :140213605078784
+2025-01-04 23:32:28 - TRACK - thread start, Tid :140213596686080
+2025-01-04 23:32:28 - TRACK - threadpool at constructor function create thread successful, waiting for task
+2025-01-04 23:32:28 - TRACK - server at constructor function start
+2025-01-04 23:32:28 - TRACK - thread start, Tid :140213502342912
+2025-01-04 23:32:28 - TRACK - server start successful
+2025-01-04 23:32:28 - TRACK - thread start, Tid :140213485557504
+2025-01-04 23:32:28 - TRACK - thread start, Tid :140213588293376
+2025-01-04 23:32:28 - TRACK - thread start, Tid :140213621864192
+2025-01-04 23:32:28 - TRACK - thread start, Tid :140213579900672
+2025-01-04 23:32:28 - TRACK - thread start, Tid :140213493950208
+2025-01-04 23:32:35 - TRACK - new client fd
+6
+already connect server
+2025-01-04 23:32:46 - TRACK - read client info finished
+2025-01-04 23:32:46 - TRACK - parsing client requests
+2025-01-04 23:32:46 - TRACK - message formats is downloadfile
+2025-01-04 23:32:46 - WARNING - client fd 
+6
+ connection closed by peer
+2025-01-04 23:32:46 - TRACK - parsing client requests
+2025-01-04 23:36:43 - TRACK - exe at main start
+2025-01-04 23:36:43 - TRACK - thread start, Tid :139924440938240
+2025-01-04 23:36:43 - TRACK - thread start, Tid :139924424152832
+2025-01-04 23:36:43 - TRACK - thread start, Tid :139924432545536
+2025-01-04 23:36:43 - TRACK - thread start, Tid :139924415760128
+2025-01-04 23:36:43 - TRACK - thread start, Tid :139924196030208
+2025-01-04 23:36:43 - TRACK - thread start, Tid :139924407367424
+2025-01-04 23:36:43 - TRACK - thread start, Tid :139924187637504
+2025-01-04 23:36:43 - TRACK - thread start, Tid :139924170852096
+2025-01-04 23:36:43 - TRACK - threadpool at constructor function create thread successful, waiting for task
+2025-01-04 23:36:43 - TRACK - server at constructor function start
+2025-01-04 23:36:43 - TRACK - server start successful
+2025-01-04 23:36:43 - TRACK - thread start, Tid :139924179244800
+2025-01-04 23:36:43 - TRACK - thread start, Tid :139924162459392
+2025-01-04 23:36:46 - TRACK - new client fd
+6
+already connect server
+2025-01-04 23:36:52 - TRACK - read client info finished
+2025-01-04 23:36:52 - TRACK - parsing client requests
+2025-01-04 23:36:52 - TRACK - message formats is downloadfile
+2025-01-04 23:36:52 - WARNING - Error: Cannot open file: 
+123456.txt
+2025-01-04 23:36:52 - WARNING - client fd 
+6
+ connection closed by peer
+2025-01-04 23:36:52 - TRACK - parsing client requests
+2025-01-04 23:37:21 - TRACK - new client fd
+6
+already connect server
+2025-01-04 23:37:29 - TRACK - read client info finished
+2025-01-04 23:37:29 - TRACK - parsing client requests
+2025-01-04 23:37:29 - TRACK - message formats is downloadfile
+2025-01-04 23:37:29 - WARNING - Error: Cannot open file: 
+123456.txt
+2025-01-04 23:37:29 - WARNING - client fd 
+6
+ connection closed by peer
+2025-01-04 23:37:29 - TRACK - parsing client requests
+2025-01-04 23:40:12 - TRACK - exe at main start
+2025-01-04 23:40:12 - TRACK - thread start, Tid :139757622871808
+2025-01-04 23:40:12 - TRACK - thread start, Tid :139757614479104
+2025-01-04 23:40:12 - TRACK - thread start, Tid :139757589300992
+2025-01-04 23:40:12 - TRACK - thread start, Tid :139757580908288
+2025-01-04 23:40:12 - TRACK - thread start, Tid :139757606086400
+2025-01-04 23:40:12 - TRACK - thread start, Tid :139757597693696
+2025-01-04 23:40:12 - TRACK - thread start, Tid :139757363394304
+2025-01-04 23:40:12 - TRACK - threadpool at constructor function create thread successful, waiting for task
+2025-01-04 23:40:12 - TRACK - server at constructor function start
+2025-01-04 23:40:12 - TRACK - thread start, Tid :139757346608896
+2025-01-04 23:40:12 - TRACK - server start successful
+2025-01-04 23:40:12 - TRACK - thread start, Tid :139757338216192
+2025-01-04 23:40:12 - TRACK - thread start, Tid :139757355001600
+2025-01-04 23:40:14 - TRACK - new client fd
+6
+already connect server
+2025-01-04 23:40:19 - TRACK - read client info finished
+2025-01-04 23:40:19 - TRACK - parsing client requests
+2025-01-04 23:40:19 - TRACK - message formats is downloadfile
+2025-01-04 23:40:19 - WARNING - Error: Cannot access file: 
+git.pdf
+2025-01-04 23:40:19 - WARNING - client fd 
+6
+ connection closed by peer
+2025-01-04 23:40:19 - TRACK - parsing client requests
+2025-01-04 23:40:22 - TRACK - new client fd
+6
+already connect server
+2025-01-04 23:40:27 - TRACK - read client info finished
+2025-01-04 23:40:27 - TRACK - parsing client requests
+2025-01-04 23:40:27 - TRACK - message formats is downloadfile
+2025-01-04 23:40:27 - WARNING - Error: Cannot access file: 
+123456.txt
+2025-01-04 23:40:27 - WARNING - client fd 
+6
+ connection closed by peer
+2025-01-04 23:40:27 - TRACK - parsing client requests
+2025-01-04 23:42:12 - TRACK - new client fd
+6
+already connect server
+2025-01-04 23:42:17 - TRACK - read client info finished
+2025-01-04 23:42:17 - TRACK - parsing client requests
+2025-01-04 23:42:17 - TRACK - message formats is downloadfile
+2025-01-04 23:42:17 - WARNING - Error: Cannot access file: 
+git
+2025-01-04 23:42:17 - WARNING - client fd 
+6
+ connection closed by peer
+2025-01-04 23:42:17 - TRACK - parsing client requests
+2025-01-04 23:53:17 - TRACK - exe at main start
+2025-01-04 23:53:17 - TRACK - thread start, Tid :140639873353472
+2025-01-04 23:53:17 - TRACK - thread start, Tid :140639856568064
+2025-01-04 23:53:17 - TRACK - thread start, Tid :140639864960768
+2025-01-04 23:53:17 - TRACK - thread start, Tid :140639761061632
+2025-01-04 23:53:17 - TRACK - thread start, Tid :140639752668928
+2025-01-04 23:53:17 - TRACK - 2025-01-04 23:53:17 - TRACK - threadpool at constructor function create thread successful, waiting for task
+2025-01-04 23:53:17 - TRACK - thread start, Tid :140639735883520
+2025-01-04 23:53:17 - TRACK - server at constructor function start
+thread start, Tid :140639769454336
+2025-01-04 23:53:17 - TRACK - thread start, Tid :140639744276224
+2025-01-04 23:53:17 - TRACK - server start successful
+2025-01-04 23:53:17 - TRACK - thread start, Tid :140639727490816
+2025-01-04 23:53:17 - TRACK - thread start, Tid :140639777847040
+2025-01-04 23:53:26 - TRACK - new client fd
+6
+already connect server
+2025-01-04 23:53:31 - TRACK - read client info finished
+2025-01-04 23:53:31 - TRACK - parsing client requests
+2025-01-04 23:53:31 - TRACK - message formats is downloadfile
+2025-01-04 23:53:31 - WARNING - client fd 
+6
+ connection closed by peer
+2025-01-04 23:53:31 - TRACK - parsing client requests
+2025-01-04 23:55:54 - TRACK - new client fd
+6
+already connect server
+2025-01-04 23:55:59 - TRACK - read client info finished
+2025-01-04 23:55:59 - TRACK - parsing client requests
+2025-01-04 23:55:59 - TRACK - message formats is downloadfile
+2025-01-04 23:55:59 - WARNING - client fd 
+6
+ connection closed by peer
+2025-01-04 23:55:59 - TRACK - parsing client requests
+2025-01-04 23:56:56 - TRACK - exe at main start
+2025-01-04 23:56:56 - TRACK - thread start, Tid :139654476953344
+2025-01-04 23:56:56 - TRACK - thread start, Tid :139654468560640
+2025-01-04 23:56:56 - TRACK - thread start, Tid :139654460167936
+2025-01-04 23:56:56 - TRACK - thread start, Tid :139654443382528
+2025-01-04 23:56:56 - TRACK - thread start, Tid :139654434989824
+2025-01-04 23:56:56 - TRACK - threadpool at constructor function create thread successful, waiting for task
+2025-01-04 23:56:56 - TRACK - thread start, Tid :139654208677632
+2025-01-04 23:56:56 - TRACK - 2025-01-04 23:56:56 - TRACK - server at constructor function start
+2025-01-04 23:56:56 - TRACK - thread start, Tid :139654200284928
+2025-01-04 23:56:56 - TRACK - thread start, Tid :139654217070336
+2025-01-04 23:56:56 - TRACK - server start successful
+2025-01-04 23:56:56 - TRACK - thread start, Tid :139654451775232
+thread start, Tid :139654191892224
+2025-01-04 23:56:57 - TRACK - new client fd
+6
+already connect server
+2025-01-04 23:57:04 - TRACK - read client info finished
+2025-01-04 23:57:04 - TRACK - parsing client requests
+2025-01-04 23:57:04 - TRACK - message formats is downloadfile
+2025-01-04 23:57:04 - WARNING - client fd 
+6
+ connection closed by peer
+2025-01-04 23:57:04 - TRACK - parsing client requests
+2025-01-04 23:59:12 - TRACK - exe at main start
+2025-01-04 23:59:12 - TRACK - thread start, Tid :140717826311936
+2025-01-04 23:59:12 - TRACK - thread start, Tid :140717817919232
+2025-01-04 23:59:12 - TRACK - thread start, Tid :140717809526528
+2025-01-04 23:59:12 - TRACK - thread start, Tid :140717801133824
+2025-01-04 23:59:12 - TRACK - thread start, Tid :140717792741120
+2025-01-04 23:59:12 - TRACK - thread start, Tid :140717784348416
+2025-01-04 23:59:12 - TRACK - thread start, Tid :140717775955712
+2025-01-04 23:59:12 - TRACK - thread start, Tid :140717767563008
+2025-01-04 23:59:12 - TRACK - threadpool at constructor function create thread successful, waiting for task
+2025-01-04 23:59:12 - TRACK - thread start, Tid :140717288584960
+2025-01-04 23:59:12 - TRACK - server at constructor function start
+2025-01-04 23:59:12 - TRACK - thread start, Tid :140717280192256
+2025-01-04 23:59:12 - TRACK - server start successful
+2025-01-04 23:59:15 - TRACK - new client fd
+6
+already connect server
+2025-01-04 23:59:19 - TRACK - read client info finished
+2025-01-04 23:59:19 - TRACK - parsing client requests
+2025-01-04 23:59:19 - TRACK - message formats is downloadfile
+2025-01-05 00:00:42 - TRACK - exe at main start
+2025-01-05 00:00:42 - TRACK - thread start, Tid :140284880815872
+2025-01-05 00:00:42 - TRACK - thread start, Tid :140284872423168
+2025-01-05 00:00:42 - TRACK - thread start, Tid :140284864030464
+2025-01-05 00:00:42 - TRACK - thread start, Tid :140284771956480
+2025-01-05 00:00:42 - TRACK - thread start, Tid :140284855637760
+2025-01-05 00:00:42 - TRACK - thread start, Tid :140284763563776
+2025-01-05 00:00:42 - TRACK - thread start, Tid :140284755171072
+2025-01-05 00:00:42 - TRACK - thread start, Tid :140284738385664
+2025-01-05 00:00:42 - TRACK - threadpool at constructor function create thread successful, waiting for task
+2025-01-05 00:00:42 - TRACK - server at constructor function start
+2025-01-05 00:00:42 - TRACK - thread start, Tid :140284729992960
+2025-01-05 00:00:42 - TRACK - server start successful
+2025-01-05 00:00:42 - TRACK - thread start, Tid :140284746778368
+2025-01-05 00:00:51 - TRACK - exe at main start
+2025-01-05 00:00:51 - TRACK - thread start, Tid :139886737909504
+2025-01-05 00:00:51 - TRACK - thread start, Tid :139886729516800
+2025-01-05 00:00:51 - TRACK - thread start, Tid :139886712731392
+2025-01-05 00:00:51 - TRACK - thread start, Tid :139886704338688
+2025-01-05 00:00:51 - TRACK - thread start, Tid :139886721124096
+2025-01-05 00:00:51 - TRACK - thread start, Tid :139886695945984
+2025-01-05 00:00:51 - TRACK - thread start, Tid :139886480848640
+2025-01-05 00:00:51 - TRACK - threadpool at constructor function create thread successful, waiting for task
+2025-01-05 00:00:51 - TRACK - thread start, Tid :139886472455936
+2025-01-05 00:00:51 - TRACK - server at constructor function start
+2025-01-05 00:00:51 - TRACK - thread start, Tid :139886455670528
+2025-01-05 00:00:51 - TRACK - thread start, Tid :139886464063232
+2025-01-05 00:00:51 - TRACK - server start successful
+2025-01-05 00:00:53 - TRACK - new client fd
+6
+already connect server
+2025-01-05 00:00:57 - TRACK - read client info finished
+2025-01-05 00:00:57 - TRACK - parsing client requests
+2025-01-05 00:00:57 - TRACK - message formats is downloadfile
+2025-01-05 00:01:04 - WARNING - client fd 
+6
+ connection closed by peer
+2025-01-05 00:01:04 - TRACK - parsing client requests
+2025-01-05 00:02:21 - TRACK - exe at main start
+2025-01-05 00:02:21 - TRACK - thread start, Tid :140271082768128
+2025-01-05 00:02:21 - TRACK - thread start, Tid :140271065982720
+2025-01-05 00:02:21 - TRACK - thread start, Tid :140271057590016
+2025-01-05 00:02:21 - TRACK - thread start, Tid :140271074375424
+2025-01-05 00:02:21 - TRACK - thread start, Tid :140271049197312
+2025-01-05 00:02:21 - TRACK - thread start, Tid :140271032411904
+2025-01-05 00:02:21 - TRACK - threadpool at constructor function create thread successful, waiting for task
+2025-01-05 00:02:21 - TRACK - thread start, Tid :140271040804608
+2025-01-05 00:02:21 - TRACK - server at constructor function start
+2025-01-05 00:02:21 - TRACK - thread start, Tid :140271024019200
+2025-01-05 00:02:21 - TRACK - server start successful
+2025-01-05 00:02:21 - TRACK - thread start, Tid :140270947530496
+2025-01-05 00:02:21 - TRACK - thread start, Tid :140270931764992

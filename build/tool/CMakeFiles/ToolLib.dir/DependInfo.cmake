@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/chn/FileServer/FileServer/tool/tool.cpp" "/home/chn/FileServer/FileServer/build/tool/CMakeFiles/ToolLib.dir/tool.cpp.o"
+  "/home/nowcoder/FileServer/FileServer/tool/tool.cpp" "/home/nowcoder/FileServer/FileServer/build/tool/CMakeFiles/ToolLib.dir/tool.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

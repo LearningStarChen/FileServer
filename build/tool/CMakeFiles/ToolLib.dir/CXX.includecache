@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/chn/FileServer/FileServer/tool/tool.cpp
+/home/nowcoder/FileServer/FileServer/tool/tool.cpp
 tool.h
-/home/chn/FileServer/FileServer/tool/tool.h
+/home/nowcoder/FileServer/FileServer/tool/tool.h
 
-/home/chn/FileServer/FileServer/tool/tool.h
+/home/nowcoder/FileServer/FileServer/tool/tool.h
 string
 -
 iostream
@@ -34,5 +34,7 @@ sys/epoll.h
 fcntl.h
 -
 netinet/in.h
+-
+sys/stat.h
 -
 
