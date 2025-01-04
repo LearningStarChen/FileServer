@@ -218,6 +218,36 @@ void Server::downloadfile(std::string requestedFile, int clientfd) {
     std::string filesizestr = std::to_string(filesize);
     std::cout << filesizestr << std::endl; 
     write(clientfd, filesizestr.c_str(), filesizestr.size());
+
+    std::ifstream ss(filepath, std::ios::binary);
+    if (!ss.is_open()) {
+        LOG_ERROR << "open target file failed!!!";
+        return;
+    }
+
+    char buffer[1024];
+    size_t totalBytesSent = 0;
+    bool fileSent = false;
+
+    while(!ss.eof()) {
+        ss.read(buffer, sizeof(buffer));
+        ssize_t bytesToSend = ss.gcount();
+        ssize_t bytesSent = send(clientfd, buffer, bytesToSend, 0);
+        if (bytesSent == -1) {
+            if (errno == EAGAIN || errno == EWOULDBLOCK) {
+                // 发送缓冲区满，稍后再试
+                usleep(1000); // 等待 1 毫秒
+                continue;
+            } else {
+                perror("Error sending data");
+                break;
+            }
+        }
+        totalBytesSent += bytesSent;
+    }
+    
+
+
 }
 
 void Server::sendmessage(std::string mess, int client) {
