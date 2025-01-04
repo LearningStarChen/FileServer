@@ -225,9 +225,27 @@ void Server::downloadfile(std::string requestedFile, int clientfd) {
         return;
     }
 
+    char buffer[1024];
+    size_t totalBytesSent = 0;
+    bool fileSent = false;
+
     while(!ss.eof()) {
-        
+        ss.read(buffer, sizeof(buffer));
+        ssize_t bytesToSend = ss.gcount();
+        ssize_t bytesSent = send(clientfd, buffer, bytesToSend, 0);
+        if (bytesSent == -1) {
+            if (errno == EAGAIN || errno == EWOULDBLOCK) {
+                // 发送缓冲区满，稍后再试
+                usleep(1000); // 等待 1 毫秒
+                continue;
+            } else {
+                perror("Error sending data");
+                break;
+            }
+        }
+        totalBytesSent += bytesSent;
     }
+    
 
 
 }
