@@ -218,6 +218,18 @@ void Server::downloadfile(std::string requestedFile, int clientfd) {
     std::string filesizestr = std::to_string(filesize);
     std::cout << filesizestr << std::endl; 
     write(clientfd, filesizestr.c_str(), filesizestr.size());
+
+    std::ifstream ss(filepath, std::ios::binary);
+    if (!ss.is_open()) {
+        LOG_ERROR << "open target file failed!!!";
+        return;
+    }
+
+    while(!ss.eof()) {
+        
+    }
+
+
 }
 
 void Server::sendmessage(std::string mess, int client) {
