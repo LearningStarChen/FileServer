@@ -39,5 +39,4 @@ private:
     static void lookallfile(std::string mess, int clientfd);
 };
 
-
 #endif
