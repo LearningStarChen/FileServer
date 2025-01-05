@@ -83,8 +83,7 @@ int main() {
     } else {
         std::cerr << "File transfer incomplete.\n";
     }
-
-    // 保持连接状态，等待进一步指令（如果需要）
+    
     while(1);
     // 关闭文件和套接字
     outputFile.close();

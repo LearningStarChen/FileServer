@@ -90,7 +90,7 @@ void Server::start() {
                     close(clientFd);
                 }
                 LOG_TRACK << "new client fd" << clientFd << "already connect server";
-
+                std::cout << "new client fd" << clientFd << "already connect server" << std::endl;
             } else if (events[n].events & EPOLLIN){
                 //正常情况下这里会触发三次（如果规范的话），第一次，读取到数据，第二次，读到-1那么表示读完，第三次，读到0，表示对端关闭；
                 // static int a = 0;
@@ -182,13 +182,14 @@ void Server::parsing_Client_Requests(int clientfd) {
     } else if (message_from_client.find("sendmessage") != std::string::npos) {
         LOG_TRACK << "message formats is sendmessage";
         //std::cout << message_from_client << std::endl;
-        tp->push(sendmessage, message_from_client, clientfd);
+        int kf = message_from_client.find(",");
+        std::string send_message = message_from_client.substr(kf + 1);
+        tp->push(sendmessage, send_message, clientfd);
 
     } else if (message_from_client.find("lookallfile") != std::string::npos) {
         LOG_TRACK << "message formats is lookallfile";
         //std::cout << message_from_client << std::endl;
         tp->push(lookallfile, message_from_client, clientfd);
-
     }
     // std::regex pattern(R"(([^,]+),(.+))"); // 匹配逗号分隔的两个部分
     // std::smatch match; // 用于存储匹配结果
@@ -204,8 +205,9 @@ void Server::parsing_Client_Requests(int clientfd) {
     // } else {
     //     std::cerr << "Invalid input format!" << std::endl;
     // }
-
-
+    else {
+        LOG_WARNING << "error request";
+    }
 
 }
 
@@ -217,7 +219,7 @@ void Server::downloadfile(std::string requestedFile, int clientfd) {
      // 打开文件（阻塞模式）
     int fileFd = open(filepath.c_str(), O_RDONLY);
     if (fileFd == -1) {
-        perror("Error opening file");
+        LOG_ERROR << "Error opening file";
         close(clientfd);
         return ;
     }
@@ -225,12 +227,12 @@ void Server::downloadfile(std::string requestedFile, int clientfd) {
     // 获取文件大小
     off_t fileSize = lseek(fileFd, 0, SEEK_END);
     lseek(fileFd, 0, SEEK_SET); // 将文件指针重置到开头
-    std::cout << "File size: " << fileSize << " bytes\n";
+    //std::cout << "File size: " << fileSize << " bytes\n";
 
     // 发送文件大小
     ssize_t bytesSent = send(clientfd, &fileSize, sizeof(fileSize), 0);
     if (bytesSent == -1) {
-        perror("Error sending file size");
+        LOG_WARNING << "Error sending file size";
         close(fileFd);
         close(clientfd);
         return;
@@ -240,9 +242,9 @@ void Server::downloadfile(std::string requestedFile, int clientfd) {
     // 阻塞读取文件内容并非阻塞发送
     char buffer[1024];
     ssize_t bytesRead = 0;
-    size_t totalBytesSent = 0;
+    size_t totalsend = 0;
 
-    while (totalBytesSent < fileSize) {
+    while (totalsend < fileSize) {
         // 阻塞读取文件
         bytesRead = read(fileFd, buffer, sizeof(buffer));
         if (bytesRead > 0) {
@@ -255,7 +257,7 @@ void Server::downloadfile(std::string requestedFile, int clientfd) {
                         usleep(1000); // 等待 1 毫秒
                         continue;
                     } else {
-                        perror("Error sending data");
+                        LOG_WARNING << "Error sending data";
                         close(fileFd);
                         close(clientfd);
                         return;
@@ -263,25 +265,32 @@ void Server::downloadfile(std::string requestedFile, int clientfd) {
                 }
                 bytesWritten += result;
             }
-            totalBytesSent += bytesWritten;
-            std::cout << "Sent " << bytesWritten << " bytes, total: " << totalBytesSent << " bytes\n";
+            totalsend += bytesWritten;
+            std::cout << "Sent " << bytesWritten << " bytes, total: " << totalsend << " bytes\n";
         } else if (bytesRead == 0) {
             // 文件读取完毕
-            std::cout << "File read complete.\n";
+            LOG_TRACK << "File read complete.";
             break;
         } else {
-            perror("Error reading file");
+            LOG_WARNING << "Error reading file";
             close(fileFd);
             close(clientfd);
             return;
         }
     }
+    //因为往往一个文件的发送的话客户端会开辟一个线程来执行
+    //所以应该是一个短连接（只处理文件的发送）
+    // 文件发送和聊天应该是分开的socket连接
+    close(clientfd);
 }
 
 void Server::sendmessage(std::string mess, int client) {
     std::cout << "到了sendmessage函数内部"  << mess << std::endl;
+    //服务器需要记录用户的登录情况，查找当前要发送的用户是否在线；
+    
 }
 
 void Server::lookallfile(std::string mess, int client) {
     std::cout << "到了lookallfile函数内部"  << mess << std::endl;
+
 }
