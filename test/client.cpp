@@ -5,7 +5,7 @@
 #include <unistd.h>
 #include <arpa/inet.h>
 
-#define PORT 8080
+#define PORT 12345
 #define BUFFER_SIZE 1024
 
 int main() {
@@ -36,6 +36,12 @@ int main() {
 
     std::cout << "Connected to server.\n";
 
+    std::cout << "请输入文件的名称" << std::endl;
+    std::string filename;
+    std::cin >> filename;
+    std::string request = "downloadfile," + filename;
+
+    write(clientSocket, request.c_str(), sizeof(request));
     // 接收文件大小
     size_t fileSize;
     ssize_t bytesRead = recv(clientSocket, &fileSize, sizeof(fileSize), 0);
@@ -45,9 +51,9 @@ int main() {
         return EXIT_FAILURE;
     }
     std::cout << "File size received: " << fileSize << " bytes\n";
-
+    std::string recvfile = "recv_" + filename;
     // 接收文件内容
-    std::ofstream outputFile("received_file.txt", std::ios::binary);
+    std::ofstream outputFile(recvfile, std::ios::binary);
     if (!outputFile.is_open()) {
         std::cerr << "Error: Cannot open file to write\n";
         close(clientSocket);

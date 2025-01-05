@@ -51,7 +51,7 @@ int main() {
     std::cout << "Client connected.\n";
 
     // 打开要发送的文件
-    std::ifstream inputFile("123456.txt", std::ios::binary);
+    std::ifstream inputFile("git.pdf", std::ios::binary);
     if (!inputFile.is_open()) {
         std::cerr << "Error: Cannot open file 'file_to_send.txt'" << std::endl;
         close(clientSocket);

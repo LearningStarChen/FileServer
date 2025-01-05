@@ -213,11 +213,69 @@ void Server::parsing_Client_Requests(int clientfd) {
 void Server::downloadfile(std::string requestedFile, int clientfd) {
     std::cout << requestedFile << std::endl;
     std::string filepath = "../test/" + requestedFile;
-    size_t filesize = 0;
-    filesize = Tool::getFileSize(filepath);
-    std::string filesizestr = std::to_string(filesize);
-    std::cout << filesizestr << std::endl; 
-    write(clientfd, filesizestr.c_str(), filesizestr.size());
+    
+     // 打开文件（阻塞模式）
+    int fileFd = open(filepath.c_str(), O_RDONLY);
+    if (fileFd == -1) {
+        perror("Error opening file");
+        close(clientfd);
+        return ;
+    }
+
+    // 获取文件大小
+    off_t fileSize = lseek(fileFd, 0, SEEK_END);
+    lseek(fileFd, 0, SEEK_SET); // 将文件指针重置到开头
+    std::cout << "File size: " << fileSize << " bytes\n";
+
+    // 发送文件大小
+    ssize_t bytesSent = send(clientfd, &fileSize, sizeof(fileSize), 0);
+    if (bytesSent == -1) {
+        perror("Error sending file size");
+        close(fileFd);
+        close(clientfd);
+        return;
+    }
+    std::cout << "File size sent.\n";
+
+    // 阻塞读取文件内容并非阻塞发送
+    char buffer[1024];
+    ssize_t bytesRead = 0;
+    size_t totalBytesSent = 0;
+
+    while (totalBytesSent < fileSize) {
+        // 阻塞读取文件
+        bytesRead = read(fileFd, buffer, sizeof(buffer));
+        if (bytesRead > 0) {
+            ssize_t bytesWritten = 0;
+            while (bytesWritten < bytesRead) {
+                ssize_t result = send(clientfd, buffer + bytesWritten, bytesRead - bytesWritten, 0);
+                if (result == -1) {
+                    if (errno == EAGAIN || errno == EWOULDBLOCK) {
+                        // 套接字发送缓冲区满，稍后再试
+                        usleep(1000); // 等待 1 毫秒
+                        continue;
+                    } else {
+                        perror("Error sending data");
+                        close(fileFd);
+                        close(clientfd);
+                        return;
+                    }
+                }
+                bytesWritten += result;
+            }
+            totalBytesSent += bytesWritten;
+            std::cout << "Sent " << bytesWritten << " bytes, total: " << totalBytesSent << " bytes\n";
+        } else if (bytesRead == 0) {
+            // 文件读取完毕
+            std::cout << "File read complete.\n";
+            break;
+        } else {
+            perror("Error reading file");
+            close(fileFd);
+            close(clientfd);
+            return;
+        }
+    }
 }
 
 void Server::sendmessage(std::string mess, int client) {
