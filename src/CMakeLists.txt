@@ -12,6 +12,7 @@ set(SOURCE_FILES
     main.cpp
     server.cpp
     threadpool.cpp
+    json.cpp
 )
 
 #################################必须先生成exe在链接库
@@ -21,8 +22,4 @@ add_executable(FileServer ${SOURCE_FILES})
 target_link_libraries(FileServer PUBLIC ToolLib)
 # 链接线程库到可执行文件
 find_package(Threads REQUIRED)
-target_link_libraries(FileServer PUBLIC ToolLib Threads::Threads)
-
-
-
-
+target_link_libraries(FileServer PUBLIC Threads::Threads)

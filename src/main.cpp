@@ -1,8 +1,10 @@
 #include "../include/log.h"
 #include "../include/server.h"
 #include "../include/threadpool.h"
+#include "../include/json.h"
 
-class LOG log("../log/logfile.txt");
+// 不要使用log，会和cmath中的对数函数相冲突的
+class LOG lg("../log/logfile.txt");
 
 void logtest() {
     LOG_TRACK << "exe at logtest function";
@@ -15,8 +17,9 @@ void logtest() {
 void servertest() {
     Server* ser = new Server();
     ser->start();
-    //delete ser;
+    delete ser;
 }
+
 
 class ThreadPool* tp = nullptr;
 
@@ -32,15 +35,27 @@ void threadpooltest() {
     delete tp;
 }
 
+class JsonData* jd = nullptr;
 
+void jsontest(std::string jsonfilepath) {
+    JsonData jsondata(jsonfilepath);
+    std::cout << jsondata.serverport << " " << 
+    " " << jsondata.threadpoolnum << " " << " " << jsondata.clientfilestroge << std::endl;
+}
 
 int main() {
     LOG_TRACK << "exe at main start";
+    //jsontest("../config/config.json");
     //logtest();
     //servertest();
     //threadpooltest();
-    tp = new ThreadPool(10);
-    servertest();
+    
+    jd = new JsonData("../config/config.json");
+    tp = new ThreadPool(jd->threadpoolnum);
+    Server* ser = new Server();
+    ser->start();
+    delete ser;
     delete tp;
+    delete jd;
     return 0;
 }

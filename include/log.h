@@ -5,8 +5,10 @@
 #include <fstream>
 #include <mutex>
 #include "../tool/tool.h"
+#include "json.h"
 
-extern class LOG log;
+
+extern class LOG lg;
 
 class Tool;
 
@@ -79,13 +81,11 @@ private:
             default: return "UNKNOWN";
         }
     }
-public:
-
 };
 
-#define LOG_TRACK         log << TRACK
-#define LOG_DEBUG         log << DEBUG
-#define LOG_INFO          log << INFO 
-#define LOG_WARNING       log << WARNING
-#define LOG_ERROR         log << ERROR
-#define LOG_CRITICAL      log << CRITICAL
+#define LOG_TRACK         lg << TRACK
+#define LOG_DEBUG         lg << DEBUG
+#define LOG_INFO          lg << INFO 
+#define LOG_WARNING       lg << WARNING
+#define LOG_ERROR         lg << ERROR
+#define LOG_CRITICAL      lg << CRITICAL

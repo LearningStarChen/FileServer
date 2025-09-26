@@ -125,6 +125,33 @@ FileServer/fast:
 	cd /home/nowcoder/FileServer/FileServer/build && $(MAKE) -f src/CMakeFiles/FileServer.dir/build.make src/CMakeFiles/FileServer.dir/build
 .PHONY : FileServer/fast
 
+json.o: json.cpp.o
+
+.PHONY : json.o
+
+# target to build an object file
+json.cpp.o:
+	cd /home/nowcoder/FileServer/FileServer/build && $(MAKE) -f src/CMakeFiles/FileServer.dir/build.make src/CMakeFiles/FileServer.dir/json.cpp.o
+.PHONY : json.cpp.o
+
+json.i: json.cpp.i
+
+.PHONY : json.i
+
+# target to preprocess a source file
+json.cpp.i:
+	cd /home/nowcoder/FileServer/FileServer/build && $(MAKE) -f src/CMakeFiles/FileServer.dir/build.make src/CMakeFiles/FileServer.dir/json.cpp.i
+.PHONY : json.cpp.i
+
+json.s: json.cpp.s
+
+.PHONY : json.s
+
+# target to generate assembly for a file
+json.cpp.s:
+	cd /home/nowcoder/FileServer/FileServer/build && $(MAKE) -f src/CMakeFiles/FileServer.dir/build.make src/CMakeFiles/FileServer.dir/json.cpp.s
+.PHONY : json.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -215,6 +242,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... FileServer"
 	@echo "... edit_cache"
+	@echo "... json.o"
+	@echo "... json.i"
+	@echo "... json.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

@@ -15,8 +15,11 @@
 #include "log.h"
 #include "../tool/tool.h"
 #include "threadpool.h"
+#include "json.h"
 
-const int MAXMESS = 1024;
+extern class JsonData* jd;
+
+const int MAXMESS = 2048;
 const int MAX_EVENTS = 100;
 
 class Server {

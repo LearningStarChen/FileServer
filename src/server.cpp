@@ -1,6 +1,5 @@
 #include "../include/server.h"
 
-
 extern class ThreadPool* tp;
 
 Server::Server() {
@@ -23,7 +22,8 @@ Server::Server() {
     memset(&addr, 0, sizeof(addr));
     addr.sin_family = AF_INET;
     addr.sin_addr.s_addr = INADDR_ANY;
-    addr.sin_port = htons(12345);
+    //从配置文件中读取端口
+    addr.sin_port = htons(jd->serverport);
 
     if (bind(serverFd, (struct sockaddr*)&addr, sizeof(addr)) == -1) {
         LOG_ERROR << "server at bind function failed";
@@ -89,8 +89,8 @@ void Server::start() {
                     LOG_ERROR << "epoll_ctl failed";
                     close(clientFd);
                 }
-                LOG_TRACK << "new client fd" << clientFd << "already connect server";
-                std::cout << "new client fd" << clientFd << "already connect server" << std::endl;
+                LOG_TRACK << "new client fd" << clientFd << " already connect server";
+                std::cout << "new client fd" << clientFd << " already connect server" << std::endl;
             } else if (events[n].events & EPOLLIN){
                 //正常情况下这里会触发三次（如果规范的话），第一次，读取到数据，第二次，读到-1那么表示读完，第三次，读到0，表示对端关闭；
                 // static int a = 0;
@@ -214,7 +214,7 @@ void Server::parsing_Client_Requests(int clientfd) {
 
 void Server::downloadfile(std::string requestedFile, int clientfd) {
     std::cout << requestedFile << std::endl;
-    std::string filepath = "../test/" + requestedFile;
+    std::string filepath = jd->clientfilestroge + requestedFile;
     
      // 打开文件（阻塞模式）
     int fileFd = open(filepath.c_str(), O_RDONLY);
@@ -225,8 +225,9 @@ void Server::downloadfile(std::string requestedFile, int clientfd) {
     }
 
     // 获取文件大小
-    off_t fileSize = lseek(fileFd, 0, SEEK_END);
-    lseek(fileFd, 0, SEEK_SET); // 将文件指针重置到开头
+    off_t fileSize = Tool::getFileSize(filepath);
+    // lseek(fileFd, 0, SEEK_END);
+    // lseek(fileFd, 0, SEEK_SET); // 将文件指针重置到开头
     //std::cout << "File size: " << fileSize << " bytes\n";
 
     // 发送文件大小
@@ -240,7 +241,7 @@ void Server::downloadfile(std::string requestedFile, int clientfd) {
     std::cout << "File size sent.\n";
 
     // 阻塞读取文件内容并非阻塞发送
-    char buffer[1024];
+    char buffer[MAXMESS];
     ssize_t bytesRead = 0;
     size_t totalsend = 0;
 
@@ -272,7 +273,7 @@ void Server::downloadfile(std::string requestedFile, int clientfd) {
             LOG_TRACK << "File read complete.";
             break;
         } else {
-            LOG_WARNING << "Error reading file";
+            LOG_WARNING << "Error reading file.";
             close(fileFd);
             close(clientfd);
             return;

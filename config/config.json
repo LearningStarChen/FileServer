@@ -1,0 +1,5 @@
+{
+    "serverport" : 12345,
+    "threadpoolnum" : 3,
+    "clientfilestroge" : "../test/"
+}
