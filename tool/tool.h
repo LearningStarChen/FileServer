@@ -21,6 +21,8 @@ public:
     static std::string getTimestamp();
     static int setNonBlocking(int fd);
     static size_t getFileSize(const std::string& filepath);
+    // 自己实现unescapeString函数
+    static std::string unescapeString(const std::string& input);
 };
 
 #endif

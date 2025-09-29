@@ -49,6 +49,7 @@ public:
     bool isString() const { return type_ == JsonType::String; }
     bool isArray() const { return type_ == JsonType::Array; }
     bool isObject() const { return type_ == JsonType::Object; }
+    
     // 值获取（带类型检查）
     bool asBoolean() const;
     double asNumber() const;

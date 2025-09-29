@@ -85,6 +85,8 @@ json.h
 /home/nowcoder/FileServer/FileServer/include/protocol.h
 json.h
 /home/nowcoder/FileServer/FileServer/include/json.h
+../tool/tool.h
+/home/nowcoder/FileServer/FileServer/tool/tool.h
 
 /home/nowcoder/FileServer/FileServer/include/server.h
 sys/types.h
@@ -104,6 +106,8 @@ fcntl.h
 netinet/in.h
 -
 regex
+-
+unordered_set
 -
 log.h
 /home/nowcoder/FileServer/FileServer/include/log.h

@@ -28,3 +28,23 @@ size_t Tool::getFileSize(const std::string& filePath) {
         return 0;
     }
 }
+
+// 自己实现unescapeString函数
+std::string Tool::unescapeString(const std::string& input) {
+    std::string result;
+    for (size_t i = 0; i < input.length(); ++i) {
+        if (input[i] == '\\' && i + 1 < input.length()) {
+            switch (input[i + 1]) {
+                case '\"': result += '\"'; i++; break;
+                case '\\': result += '\\'; i++; break;
+                case 'n': result += '\n'; i++; break;
+                case 't': result += '\t'; i++; break;
+                case 'r': result += '\r'; i++; break;
+                default: result += input[i]; break;
+            }
+        } else {
+            result += input[i];
+        }
+    }
+    return result;
+}

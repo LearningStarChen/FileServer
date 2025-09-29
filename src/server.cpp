@@ -105,32 +105,6 @@ void Server::start() {
     close(epollFd);
 }
 
-// void Server::read_Client_Message(int fd) {
-//     //连接和发送消息都会触发
-//     char buffer[1024];
-//     while (true) {
-//         ssize_t n = read(fd, buffer, sizeof(buffer)); // 读取数据
-//         if (n == -1) { // 错误情况
-//             if (errno == EAGAIN) {
-//                 // 表示数据读取完毕，没有更多数据
-//                 break;
-//             }
-//             LOG_ERROR << "read from client fd: " << fd <<" error";
-//             close(fd); // 关闭文件描述符
-//             break;
-//         } else if (n == 0) {
-//             // 对端关闭连接
-//             LOG_WARNING << "client fd " << fd << " connection closed by peer";
-//             close(fd);
-//             break;
-//         } else {
-//             // 正常将数据得到存储于buffer
-            
-//         }
-//     }
-//     std::cout << "recv from client" << buffer << std::endl;
-    
-// }
 
 void Server::read_Client_Message(int clientfd) {
     bufferlen = 0;
@@ -164,6 +138,7 @@ void Server::read_Client_Message(int clientfd) {
 void Server::parsing_Client_Requests(int clientfd) {
     LOG_TRACK << "parsing client requests";
     std::string message_from_client = std::string(buffer, bufferlen);
+    std::cout << message_from_client ;
     // 解析客户端消息，获得各个信息
     ProtocolFromClient pl(message_from_client);
     if (pl.type == 3) { // 登录验证
@@ -182,37 +157,23 @@ void Server::parsing_Client_Requests(int clientfd) {
         LOG_TRACK << "message formats is lookallfile";
         //std::cout << message_from_client << std::endl;
         tp->push(lookallfile, clientfd);
-    }
-    // std::regex pattern(R"(([^,]+),(.+))"); // 匹配逗号分隔的两个部分
-    // std::smatch match; // 用于存储匹配结果
-
-    // if (std::regex_match(message_from_client, match, pattern)) {
-    //     // match[1] 是第一个部分，match[2] 是第二个部分
-    //     std::string part1 = match[1];
-    //     std::string part2 = match[2];
-
-    //     // 输出结果
-    //     std::cout << "Part 1: " << part1 << std::endl;
-    //     std::cout << "Part 2: " << part2 << std::endl;
-    // } else {
-    //     std::cerr << "Invalid input format!" << std::endl;
-    // }
-    else {
+    } else {
         LOG_WARNING << "error request";
     }
 
 }
 
 void Server::useridentity(std::string name, std::string passwd, int clientFd) {
-    bool flag = false;
+    std::string flag = "false";
     if (users->search_element(name)) {
         if (users->get_element(name).passwd == passwd) {
-            flag = true;
+            flag = "true";
         }
     } 
-    
-    // 每一个函数组织json格式的文本并发送/****************************************************** */
-    ssize_t bytesSent = send(clientFd, &flag, sizeof(flag), 0);
+    ProtocolFromServer pfs(2, flag);
+    std::string mk = pfs.message;
+    // 每一个函数组织json格式的文本并发送
+    ssize_t bytesSent = send(clientFd, &mk, sizeof(mk), 0);
     if (bytesSent == -1) {
         LOG_WARNING << "Error sending identity flag";
         close(clientFd);
@@ -221,10 +182,22 @@ void Server::useridentity(std::string name, std::string passwd, int clientFd) {
 }
 
 void Server::userreg(std::string name, std::string passwd, int clientFd) {
+    std::string flag = "true";
     if (users->search_element(name)) {
-        
+        flag = "false";
     } 
-
+    users->insert_element(name, User_Message {
+        passwd,   // 密码
+        true,     // 在线
+        clientFd,  // 客户端socketfd
+        std::unordered_set<std::string> ()
+    });
+    ssize_t bytesSent = send(clientFd, &flag, sizeof(flag), 0);
+    if (bytesSent == -1) {
+        LOG_WARNING << "Error sending userreg flag";
+        close(clientFd);
+        return;
+    }
 }
 
 void Server::downloadfile(std::string requestedFile, int clientfd) {
@@ -241,9 +214,6 @@ void Server::downloadfile(std::string requestedFile, int clientfd) {
 
     // 获取文件大小
     off_t fileSize = Tool::getFileSize(filepath);
-    // lseek(fileFd, 0, SEEK_END);
-    // lseek(fileFd, 0, SEEK_SET); // 将文件指针重置到开头
-    //std::cout << "File size: " << fileSize << " bytes\n";
 
     // 发送文件大小
     ssize_t bytesSent = send(clientfd, &fileSize, sizeof(fileSize), 0);

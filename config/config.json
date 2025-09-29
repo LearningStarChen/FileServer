@@ -1,13 +1,7 @@
 {
-<<<<<<< HEAD
     "serverPort" : 12345, 
     "threadPoolNum" : 3,
     "clientFileStrogePath" : "../test/",
     "skipListHigh" : 10 ,
     "usersPath" : "../user_message/user_message.txt"
-=======
-    "serverport" : 12345,
-    "threadpoolnum" : 3,
-    "clientfilestroge" : "../test/"
->>>>>>> origin/master
 }

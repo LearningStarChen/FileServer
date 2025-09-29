@@ -12,6 +12,7 @@
 #include <netinet/in.h>
 #include <regex>
 
+#include <unordered_set>
 #include "log.h"
 #include "../tool/tool.h"
 #include "threadpool.h"
