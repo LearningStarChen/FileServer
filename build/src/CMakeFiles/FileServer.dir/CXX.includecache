@@ -82,6 +82,10 @@ mutex
 json.h
 /home/nowcoder/FileServer/FileServer/include/json.h
 
+/home/nowcoder/FileServer/FileServer/include/protocol.h
+json.h
+/home/nowcoder/FileServer/FileServer/include/json.h
+
 /home/nowcoder/FileServer/FileServer/include/server.h
 sys/types.h
 -
@@ -109,6 +113,30 @@ threadpool.h
 /home/nowcoder/FileServer/FileServer/include/threadpool.h
 json.h
 /home/nowcoder/FileServer/FileServer/include/json.h
+protocol.h
+/home/nowcoder/FileServer/FileServer/include/protocol.h
+skiplist.h
+/home/nowcoder/FileServer/FileServer/include/skiplist.h
+
+/home/nowcoder/FileServer/FileServer/include/skiplist.h
+iostream
+-
+cstdlib
+-
+cmath
+-
+cstring
+-
+mutex
+-
+fstream
+-
+unordered_set
+-
+json.h
+/home/nowcoder/FileServer/FileServer/include/json.h
+log.h
+/home/nowcoder/FileServer/FileServer/include/log.h
 
 /home/nowcoder/FileServer/FileServer/include/threadpool.h
 iostream
@@ -151,6 +179,8 @@ sstream
 /home/nowcoder/FileServer/FileServer/include/threadpool.h
 ../include/json.h
 /home/nowcoder/FileServer/FileServer/include/json.h
+../include/skiplist.h
+/home/nowcoder/FileServer/FileServer/include/skiplist.h
 
 /home/nowcoder/FileServer/FileServer/src/server.cpp
 ../include/server.h
