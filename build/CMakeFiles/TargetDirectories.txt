@@ -1,0 +1,8 @@
+/home/nowcoder/FileServer/FileServer/build/CMakeFiles/rebuild_cache.dir
+/home/nowcoder/FileServer/FileServer/build/CMakeFiles/edit_cache.dir
+/home/nowcoder/FileServer/FileServer/build/tool/CMakeFiles/rebuild_cache.dir
+/home/nowcoder/FileServer/FileServer/build/tool/CMakeFiles/ToolLib.dir
+/home/nowcoder/FileServer/FileServer/build/tool/CMakeFiles/edit_cache.dir
+/home/nowcoder/FileServer/FileServer/build/src/CMakeFiles/rebuild_cache.dir
+/home/nowcoder/FileServer/FileServer/build/src/CMakeFiles/FileServer.dir
+/home/nowcoder/FileServer/FileServer/build/src/CMakeFiles/edit_cache.dir

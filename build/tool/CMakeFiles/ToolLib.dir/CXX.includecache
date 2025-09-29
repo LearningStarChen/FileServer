@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/nowcoder/FileServer/FileServer/tool/tool.cpp
+tool.h
+/home/nowcoder/FileServer/FileServer/tool/tool.h
+
+/home/nowcoder/FileServer/FileServer/tool/tool.h
+string
+-
+iostream
+-
+fstream
+-
+mutex
+-
+sys/types.h
+-
+sys/socket.h
+-
+unistd.h
+-
+cstring
+-
+arpa/inet.h
+-
+sys/epoll.h
+-
+fcntl.h
+-
+netinet/in.h
+-
+sys/stat.h
+-
+
