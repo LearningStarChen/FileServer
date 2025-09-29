@@ -12,9 +12,34 @@
 #include "json.h"
 
 
-class Protocol {
+class ProtocolFromClient {
 public:
-    Protocol(std::string mess) {
+    ProtocolFromClient(std::string mess) {
+        JsonParser parser; 
+        JsonValue json_ = parser.parse(mess); //获取解析后的值
+        name = json_["name"].asString();
+        type = json_["type"].asInt();
+        if (type == 0) {
+            fileName = json_["fileName"].asString();
+        } else if (type == 1) {
+            message = json_["message"].asString();
+        } else if (type == 2) {
+
+        } else if (type == 3 || type == 4) { //登录或者注册
+            passwd = json_["passwd"].asString();
+        } 
+    }
+public:
+    std::string name;
+    std::string passwd;
+    int type;
+    std::string fileName;
+    std::string message;
+};
+
+class ProtocolFromServer {
+public:
+    ProtocolFromServer(std::string mess) {
         JsonParser parser; 
         JsonValue json_ = parser.parse(mess); //获取解析后的值
         name = json_["name"].asString();

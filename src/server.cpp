@@ -164,8 +164,8 @@ void Server::read_Client_Message(int clientfd) {
 void Server::parsing_Client_Requests(int clientfd) {
     LOG_TRACK << "parsing client requests";
     std::string message_from_client = std::string(buffer, bufferlen);
-    // 解析消息，获得各个信息
-    Protocol pl(message_from_client);
+    // 解析客户端消息，获得各个信息
+    ProtocolFromClient pl(message_from_client);
     if (pl.type == 3) { // 登录验证
         tp->push(useridentity, pl.name, pl.passwd, clientfd);
     } if (pl.type == 4) { // 注册
