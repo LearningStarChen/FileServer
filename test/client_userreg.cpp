@@ -7,7 +7,7 @@
 #include <arpa/inet.h>
 
 #define PORT 12345
-#define BUFFER_SIZE 100000
+#define BUFFER_SIZE 1000
 
 int main() {
     int clientSocket;
@@ -40,8 +40,13 @@ int main() {
     // std::cout << "请输入文件的名称" << std::endl;
     // std::string filename;
     // std::cin >> filename;
-    std::string request =  R"({"name":"chn","type":4,"passwd":"123456"})";
-    std::cout << request << sizeof(request) << request.size() << std::endl;
+    std::string request =  R"({
+        "name": "chn",
+        "type": 4,
+        "passwd":"123456"
+    })";
+    std::cout << request.c_str()<< std::endl;
+    std::cout << request.size() << std::endl;
     write(clientSocket, request.c_str(), request.size());
     // 接收文件大小
     char buffer[BUFFER_SIZE];
@@ -51,7 +56,7 @@ int main() {
         close(clientSocket);
         return EXIT_FAILURE;
     }
-    
+    std::cout << std::string(buffer) << std::endl;
     close(clientSocket);
 
     return EXIT_SUCCESS;

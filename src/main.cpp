@@ -55,11 +55,16 @@ int main() {
     
     jd = new JsonData("../config/config.json");
     users = new Users(jd->skipListHigh);
+    //users->load_file();
     tp = new ThreadPool(jd->threadPoolNum);
+
     Server* ser = new Server();
     ser->start();
+
+    //users->dump_file();
     delete ser;
     delete tp;
     delete jd;
+    delete users;
     return 0;
 }

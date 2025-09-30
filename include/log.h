@@ -70,6 +70,7 @@ private:
     std::string logFileName;
     std::ofstream fileStream;
     std::mutex logMutex;
+
     std::string getLogLevelString(LogLevel level) {
         switch (level) {
             case TRACK: return "TRACK";

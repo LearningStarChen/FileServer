@@ -43,19 +43,21 @@ public:
     std::string message;   //客户端的类型是消息，这个是消息的内容
 };
 
-class ProtocolFromServer {
-public:
-    ProtocolFromServer(int type, std::string toclientmess = "", off_t filesize = 0, std::string fileContent = "") {
-        std::unordered_map<std::string, JsonValue> mess;
-        if (type == 0) { //表示收到文件类型，回复文件
-            mess["fileSize"] = JsonValue(std::to_string(filesize));
-            mess["fileContent"] = JsonValue(fileContent);
-        } else if (type == 1) { // 表示收到消息类型，回复消息
-            mess["message"] = JsonValue(toclientmess);
-        }
-        JsonValue json_(mess);
-        message = json_.toString();
-    }
-public:
-    std::string message;
-};
+
+// 由于
+// class ProtocolFromServer {
+// public:
+//     ProtocolFromServer(int type, std::string toclientmess = "", off_t filesize = 0, std::string fileContent = "") {
+//         std::unordered_map<std::string, JsonValue> mess;
+//         if (type == 0) { //表示收到文件类型，回复文件
+//             mess["fileSize"] = JsonValue(std::to_string(filesize));
+//             mess["fileContent"] = JsonValue(fileContent);
+//         } else if (type == 1) { // 表示收到消息类型，回复消息
+//             mess["message"] = JsonValue(toclientmess);
+//         }
+//         JsonValue json_(mess);
+//         message = json_.toString();
+//     }
+// public:
+//     std::string message;
+// };

@@ -12,6 +12,7 @@
 #include <mutex>
 #include <fstream>
 #include <unordered_set>
+#include <unordered_map>
 #include "json.h"
 #include "log.h"
 
@@ -205,11 +206,15 @@ int SkipList<K, V>::insert_element(const K key, const V value) {
 template<typename K, typename V> 
 void SkipList<K, V>::display_list() {
 
+    std::cout << "\n*****Skip List*****"<<"\n"; 
     for (int i = 0; i <= _skip_list_level; i++) {
         Node<K, V> *node = this->_header->forward[i]; 
+        std::cout << "Level " << i << ": ";
         while (node != NULL) {
+            std::cout << node->get_key() << ":" << node->get_value().toString() << ";";
             node = node->forward[i];
         }
+        std::cout << std::endl;
     }
 }
 
@@ -244,7 +249,7 @@ void SkipList<K, V>::load_file() {
             continue;
         }
         // Define key as int type
-        insert_element(stoi(*key), *value);
+        insert_element(*key, *value);
     }
     delete key;
     delete value;
@@ -444,6 +449,20 @@ struct User_Message {
     bool isOnline;
     int clientFd;
     std::unordered_set<std::string> friendUsers;
+    std::string toString() { //转换为Json格式方便落盘
+        std::unordered_map<std::string, JsonValue> jsonobject;
+        jsonobject["passwd"] = JsonValue(passwd);
+        jsonobject["isOnline"] = JsonValue(isOnline);
+        jsonobject["clientFd"] = JsonValue(clientFd);
+       
+        std::vector<JsonValue> a;
+        for (auto it : friendUsers)
+            a.push_back(it);
+        jsonobject["friendUsers"] = JsonValue(a);
+
+        JsonValue js(jsonobject);
+        return js.toString();
+    }   
 };
 
 using Users = SkipList<std::string, User_Message>;

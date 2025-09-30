@@ -136,14 +136,20 @@ void Server::read_Client_Message(int clientfd) {
 /*************************************************消息处理函数******************************************************** */
 
 void Server::parsing_Client_Requests(int clientfd) {
-    LOG_TRACK << "parsing client requests";
     std::string message_from_client = std::string(buffer, bufferlen);
-    std::cout << message_from_client ;
+    if (message_from_client.empty()) {
+        //这个函数会触发两遍，第二遍是空的，如果是空的就跳过
+        return;
+    }
+    LOG_TRACK << "parsing client requests";
+    //std::cout << message_from_client << std::endl;
     // 解析客户端消息，获得各个信息
     ProtocolFromClient pl(message_from_client);
     if (pl.type == 3) { // 登录验证
+        LOG_TRACK << "message formats is useridentity";
         tp->push(useridentity, pl.name, pl.passwd, clientfd);
     } if (pl.type == 4) { // 注册
+        LOG_TRACK << "message formats is userreg";
         tp->push(userreg, pl.name, pl.passwd, clientfd);
     } else if (pl.type == 0) {
         LOG_TRACK << "message formats is downloadfile";
@@ -168,12 +174,13 @@ void Server::useridentity(std::string name, std::string passwd, int clientFd) {
     if (users->search_element(name)) {
         if (users->get_element(name).passwd == passwd) {
             flag = "true";
+        } else {
+            flag = "false,passwd_error";
         }
     } 
-    ProtocolFromServer pfs(2, flag);
-    std::string mk = pfs.message;
+    flag = "false,no_user";
     // 每一个函数组织json格式的文本并发送
-    ssize_t bytesSent = send(clientFd, &mk, sizeof(mk), 0);
+    ssize_t bytesSent = send(clientFd, &flag, sizeof(flag), 0);
     if (bytesSent == -1) {
         LOG_WARNING << "Error sending identity flag";
         close(clientFd);
@@ -192,12 +199,20 @@ void Server::userreg(std::string name, std::string passwd, int clientFd) {
         clientFd,  // 客户端socketfd
         std::unordered_set<std::string> ()
     });
-    ssize_t bytesSent = send(clientFd, &flag, sizeof(flag), 0);
+    // 生成已经注册成功的日志
+    std::ostringstream ss;
+    ss << "name: " << name << ", passwd: " << passwd << ", userreg success";
+    LOG_TRACK << ss.str();
+    //展示一下，看是否出错
+    //users->display_list();
+    // 回复客户端消息
+    ssize_t bytesSent = send(clientFd, flag.c_str(), flag.size(), 0);
     if (bytesSent == -1) {
         LOG_WARNING << "Error sending userreg flag";
         close(clientFd);
         return;
     }
+    LOG_TRACK << "response userreg message: " + flag;
 }
 
 void Server::downloadfile(std::string requestedFile, int clientfd) {

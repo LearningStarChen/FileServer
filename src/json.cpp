@@ -522,6 +522,7 @@ JsonData::JsonData(std::string path) {
     std::stringstream buffer;
     buffer << file.rdbuf();
     std::string jsonContent = buffer.str();
+    //std::cout << jsonContent << std::endl;
     file.close();
     // Json解析器解析读取到的内容
     JsonParser parser; 
