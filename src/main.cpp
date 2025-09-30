@@ -61,7 +61,7 @@ int main() {
     Server* ser = new Server();
     ser->start();
 
-    //users->dump_file();
+    users->dump_file();
     delete ser;
     delete tp;
     delete jd;

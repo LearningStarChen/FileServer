@@ -42,7 +42,7 @@ int main() {
     // std::cin >> filename;
     std::string request =  R"({
         "name": "chn",
-        "type": 4,
+        "type": 3,
         "passwd":"123456"
     })";
     std::cout << request.c_str()<< std::endl;
@@ -56,7 +56,7 @@ int main() {
         close(clientSocket);
         return EXIT_FAILURE;
     }
-    std::cout << std::string(buffer) << std::endl;
+    std::cout << buffer << std::endl;
     close(clientSocket);
 
     return EXIT_SUCCESS;

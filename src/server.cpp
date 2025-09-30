@@ -3,6 +3,8 @@
 extern class ThreadPool* tp;
 
 Server::Server() {
+    // 服务器stop标志
+    stopFlag = false;
     LOG_TRACK << "server at constructor function start";
     // 创建服务器套接字
     serverFd = socket(AF_INET, SOCK_STREAM | SOCK_NONBLOCK, 0);
@@ -59,7 +61,7 @@ void Server::start() {
 
     // 事件循环
     struct epoll_event events[MAX_EVENTS];
-    while (1) {
+    while (!stopFlag) {
         int nfds = epoll_wait(epollFd, events, MAX_EVENTS, -1);
         if (nfds == -1) {
             LOG_ERROR << "epoll_wait failed";
@@ -166,7 +168,6 @@ void Server::parsing_Client_Requests(int clientfd) {
     } else {
         LOG_WARNING << "error request";
     }
-
 }
 
 void Server::useridentity(std::string name, std::string passwd, int clientFd) {
@@ -180,7 +181,7 @@ void Server::useridentity(std::string name, std::string passwd, int clientFd) {
     } 
     flag = "false,no_user";
     // 每一个函数组织json格式的文本并发送
-    ssize_t bytesSent = send(clientFd, &flag, sizeof(flag), 0);
+    ssize_t bytesSent = send(clientFd, flag.c_str(), flag.size(), 0);
     if (bytesSent == -1) {
         LOG_WARNING << "Error sending identity flag";
         close(clientFd);
@@ -193,18 +194,21 @@ void Server::userreg(std::string name, std::string passwd, int clientFd) {
     if (users->search_element(name)) {
         flag = "false";
     } 
-    users->insert_element(name, User_Message {
-        passwd,   // 密码
-        true,     // 在线
-        clientFd,  // 客户端socketfd
-        std::unordered_set<std::string> ()
-    });
-    // 生成已经注册成功的日志
-    std::ostringstream ss;
-    ss << "name: " << name << ", passwd: " << passwd << ", userreg success";
-    LOG_TRACK << ss.str();
-    //展示一下，看是否出错
-    //users->display_list();
+    if (flag == "true") {
+        users->insert_element(name, User_Message {
+            passwd,   // 密码
+            true,     // 在线
+            clientFd,  // 客户端socketfd
+            std::unordered_set<std::string> ()
+        });
+        // 生成已经注册成功的日志
+        std::ostringstream ss;
+        ss << "name: " << name << ", passwd: " << passwd << ", userreg success";
+        LOG_TRACK << ss.str();
+        //展示一下，看是否出错
+        //users->display_list();
+    }
+    
     // 回复客户端消息
     ssize_t bytesSent = send(clientFd, flag.c_str(), flag.size(), 0);
     if (bytesSent == -1) {

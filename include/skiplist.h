@@ -226,7 +226,7 @@ void SkipList<K, V>::dump_file() {
     Node<K, V> *node = this->_header->forward[0]; 
 
     while (node != NULL) {
-        _file_writer << node->get_key() << ":" << node->get_value() << "\n";
+        _file_writer << node->get_key() << ":" << node->get_value().toString() << "\n";
         node = node->forward[0];
     }
 

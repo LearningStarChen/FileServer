@@ -30,11 +30,16 @@ class Server {
 public:
     Server();
     void start();
+    void stop() {
+        this->stopFlag = true;
+    }
 private:
     int serverFd;
     //接受消息，然后解析消息
     char buffer[MAXMESS];
     int bufferlen;
+
+    bool stopFlag;
 private:
     void read_Client_Message(int fd);
     void parsing_Client_Requests(int clientfd);
