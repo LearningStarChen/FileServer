@@ -5,6 +5,12 @@
  ************************************************************************/
 
 // 跳表，实现客户端用户的信息存储，注意这个是线程安全的
+
+/*
+    1. 增加了一个用户数据的结构UserMessage
+    2. 数据落盘利用json进行落盘，适应性很强
+*/
+
 #include <iostream> 
 #include <cstdlib>
 #include <cmath>
@@ -219,16 +225,22 @@ void SkipList<K, V>::display_list() {
 }
 
 // Dump data in memory to file 
+// 修改数据落盘的逻辑，利用json方便配置落盘
 template<typename K, typename V> 
 void SkipList<K, V>::dump_file() {
 
     _file_writer.open(jd->usersPath);
     Node<K, V> *node = this->_header->forward[0]; 
-
+    std::unordered_map<std::string, JsonValue> skipListMap;
+    
     while (node != NULL) {
-        _file_writer << node->get_key() << ":" << node->get_value().toString() << "\n";
+        // 利用toJsonValue返回JsonValue对象，并进行落盘
+        skipListMap[node->get_key()] = node->get_value().toJsonValue();
         node = node->forward[0];
     }
+
+    JsonValue skipListJv(skipListMap);
+    _file_writer << skipListJv.toString();
 
     _file_writer.flush();
     _file_writer.close();
@@ -449,7 +461,7 @@ struct User_Message {
     bool isOnline;
     int clientFd;
     std::unordered_set<std::string> friendUsers;
-    std::string toString() { //转换为Json格式方便落盘
+    JsonValue toJsonValue() { //转换为Json格式方便落盘
         std::unordered_map<std::string, JsonValue> jsonobject;
         jsonobject["passwd"] = JsonValue(passwd);
         jsonobject["isOnline"] = JsonValue(isOnline);
@@ -460,8 +472,7 @@ struct User_Message {
             a.push_back(it);
         jsonobject["friendUsers"] = JsonValue(a);
 
-        JsonValue js(jsonobject);
-        return js.toString();
+        return JsonValue(jsonobject);
     }   
 };
 

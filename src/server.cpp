@@ -91,7 +91,9 @@ void Server::start() {
                     LOG_ERROR << "epoll_ctl failed";
                     close(clientFd);
                 }
-                LOG_TRACK << "new client fd " << clientFd << " already connect server";
+                std::ostringstream ss;
+                ss << "new client fd " << clientFd << " already connect server";
+                LOG_TRACK << ss.str();
                 std::cout << "new client fd " << clientFd << " already connect server" << std::endl;
             } else if (events[n].events & EPOLLIN) {
                 //正常情况下这里会触发三次（如果规范的话），第一次，读取到数据，第二次，读到-1那么表示读完，第三次，读到0，表示对端关闭；
@@ -144,7 +146,7 @@ void Server::parsing_Client_Requests(int clientfd) {
         return;
     }
     LOG_TRACK << "parsing client requests";
-    //std::cout << message_from_client << std::endl;
+    std::cout << "message_from_client: " << message_from_client << std::endl;
     // 解析客户端消息，获得各个信息
     ProtocolFromClient pl(message_from_client);
     if (pl.type == 3) { // 登录验证
@@ -189,6 +191,8 @@ void Server::useridentity(std::string name, std::string passwd, int clientFd) {
     }
 }
 
+
+// type = 4
 void Server::userreg(std::string name, std::string passwd, int clientFd) {
     std::string flag = "true";
     if (users->search_element(name)) {
@@ -207,6 +211,7 @@ void Server::userreg(std::string name, std::string passwd, int clientFd) {
         LOG_TRACK << ss.str();
         //展示一下，看是否出错
         //users->display_list();
+        ser->stopFlag = true;
     }
     
     // 回复客户端消息

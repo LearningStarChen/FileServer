@@ -46,6 +46,8 @@ class JsonData* jd = nullptr;
 
 Users* users = nullptr;
 
+
+class Server* ser = nullptr;
 int main() {
     LOG_TRACK << "exe at main start";
     //jsontest("../config/config.json");
@@ -58,7 +60,7 @@ int main() {
     //users->load_file();
     tp = new ThreadPool(jd->threadPoolNum);
 
-    Server* ser = new Server();
+    ser = new Server();
     ser->start();
 
     users->dump_file();

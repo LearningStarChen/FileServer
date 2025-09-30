@@ -22,6 +22,7 @@
 
 extern class JsonData* jd;
 extern Users* users;
+extern class Server* ser;
 
 const int MAXMESS = 2048;
 const int MAX_EVENTS = 100;

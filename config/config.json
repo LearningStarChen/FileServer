@@ -3,5 +3,5 @@
     "threadPoolNum" : 3,
     "clientFileStrogePath" : "../test/",
     "skipListHigh" : 10 ,
-    "usersPath" : "../user_message/user_message.txt"
+    "usersPath" : "../user_message/user_message.json"
 }

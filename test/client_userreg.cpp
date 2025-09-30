@@ -40,14 +40,22 @@ int main() {
     // std::cout << "请输入文件的名称" << std::endl;
     // std::string filename;
     // std::cin >> filename;
-    std::string request =  R"({
-        "name": "chn",
-        "type": 3,
-        "passwd":"123456"
-    })";
-    std::cout << request.c_str()<< std::endl;
-    std::cout << request.size() << std::endl;
-    write(clientSocket, request.c_str(), request.size());
+    std::string request[2] = {
+        R"({
+            "name": "chn",
+            "type": 4,
+            "passwd":"123456"
+        })",
+        R"({
+            "name": "czp",
+            "type": 4,
+            "passwd":"456789"
+        })"
+    };
+    // std::cout << request.c_str()<< std::endl;
+    // std::cout << request.size() << std::endl;
+    for (int i = 0; i < 2; i++)
+        write(clientSocket, request[i].c_str(), request[i].size());
     // 接收文件大小
     char buffer[BUFFER_SIZE];
     ssize_t bytesRead = recv(clientSocket, &buffer, sizeof(buffer), 0);
@@ -56,7 +64,7 @@ int main() {
         close(clientSocket);
         return EXIT_FAILURE;
     }
-    std::cout << buffer << std::endl;
+    std::cout << std::string(buffer) << std::endl;
     close(clientSocket);
 
     return EXIT_SUCCESS;
